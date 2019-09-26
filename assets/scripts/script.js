@@ -1,16 +1,16 @@
 // On push of the submit button, take the value of the city
-var proTeams = [];
-var gameTeams = [];
-var cityTeamsTonight = [];
+// var proTeams = [];
+// var gameTeams = [];
+// var cityTeamsTonight = [];
+var cityTeams = [];
+var baseballTeams = [];
 
 $('#submit-button').on('click', function() {
     event.preventDefault();
     var userCity = $('#city-input').val().trim();
     var date = $('#date-input').val().trim();
     
-    // var queryURLBasketball = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + userCity;
-    var queryURLBaseball = 'https://therundown-therundown-v1.p.rapidapi.com/sports/3/events' + date;
-
+    var queryURLBasketball = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + userCity;
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -23,7 +23,16 @@ $('#submit-button').on('click', function() {
     }
     
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        var events = response.events;
+        for (let i = 0; i < events.length; i++) {
+            var teams = events[i].teams;
+            for (let j = 0; j < teams.length; j++) {
+                baseballTeams.push(teams[j].name);
+            }
+        }
+        if (baseballTeams.indexOf() !== -1) {
+
+        }
     });
 
     // $.get(queryURLBasketball).then(function(response) {
