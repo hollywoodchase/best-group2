@@ -18,7 +18,8 @@ $('#submit-button').on('click', function() {
             } 
         }
     });
-    const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/2019-09-26";
+    var date = $('#date-input').val().trim();
+    const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/" + date;
         const settings = {
             url: url,
             method: "GET",
@@ -41,8 +42,9 @@ $('#submit-button').on('click', function() {
                     phillyTeamsTonight.push(teams[k]);
                 } 
             }
+            console.log(phillyTeamsTonight);
         });
-        console.log(phillyTeamsTonight);
+        
 });
 
 
