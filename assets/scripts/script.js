@@ -1,7 +1,7 @@
 // On push of the submit button, take the value of the city
 var proTeams = [];
-var phillyTeams = [];
-var phillyTeamsTonight = [];
+var gameTeams = [];
+var cityTeamsTonight = [];
 
 $('#submit-button').on('click', function() {
     event.preventDefault();
@@ -10,11 +10,11 @@ $('#submit-button').on('click', function() {
     var queryURL1 = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + userCity;
 
     $.get(queryURL1).then(function(response) {
-        phillyTeams = response.teams;
+        cityTeams = response.teams;
         var leagues = ["NFL", "NBA", "NHL", "MLB"];
-        for (let i = 0; i < phillyTeams.length; i++) {
-            if (leagues.indexOf(phillyTeams[i].strLeague) !== -1) {
-                proTeams.push(phillyTeams[i].strTeam);
+        for (let i = 0; i < cityTeams.length; i++) {
+            if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
+                proTeams.push(cityTeams[i].strTeam);
             } 
         }
     });
@@ -39,10 +39,10 @@ $('#submit-button').on('click', function() {
             }
             for (let k = 0; k < teams.length; k++) {
                 if (proTeams.indexOf(teams[k]) !== -1) {
-                    phillyTeamsTonight.push(teams[k]);
+                    cityTeamsTonight.push(teams[k]);
                 } 
             }
-            console.log(phillyTeamsTonight);
+            console.log(cityTeamsTonight);
         });
         
 });
