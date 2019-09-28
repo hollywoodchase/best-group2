@@ -66,3 +66,49 @@ $('#submit-button').on('click', function () {
     console.log(proTeams);
     console.log(sportsTeams);
 });
+<<<<<<< HEAD
+=======
+
+     $.get(queryURLBasketball).then(function(response) {
+        cityTeams = response.teams;
+        var leagues = ["NFL", "NBA", "NHL", "MLB"];
+        for (let i = 0; i < cityTeams.length; i++) {
+            if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
+                 proTeams.push(cityTeams[i].strTeam);
+             } 
+         }
+     });
+     var date = $('#date-input').val().trim();
+     const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/" + date;
+        const settings = {
+    //         url: url,
+    //         method: "GET",
+    //         headers: {
+    //             "x-rapidapi-host": "api-nba-v1.p.rapidapi.com",
+	//             "x-rapidapi-key": "1eb7eadabemshf0789dca576eb58p1442aejsnece09022835e"
+    //         }
+    //     };
+    //     $.ajax(settings).then(function (response) {
+    //         var games = response.api.games;
+    //         var teams = [];
+    //         var hTeam;
+    //         var vTeam;
+    //         for (let j = 0; j < games.length; j++) {
+    //             teams.push(games[j].hTeam.fullName);
+    //             teams.push(games[j].vTeam.fullName);
+    //         }
+    //         for (let k = 0; k < teams.length; k++) {
+    //             if (proTeams.indexOf(teams[k]) !== -1) {
+    //                 cityTeamsTonight.push(teams[k]);
+    //             } 
+    //         }
+    //         console.log(cityTeamsTonight);
+    //     });
+
+
+
+
+
+
+
+>>>>>>> 812427b22ae287b3c58c09c7d4e7b44044a71f51
