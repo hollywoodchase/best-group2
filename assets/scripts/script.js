@@ -10,12 +10,13 @@ $('#submit-button').on('click', function () {
         console.log(userCity);
         var openRestaurantsArray = [];
 
+        // const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=philadelphia";
 
-        const queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurants&open_now=true&location=" + userCity;
-        console.log(queryURL);
+        const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=" + userCity;
+        console.log(url);
 
         const settings = {
-            queryURL: queryURL,
+            url: url,
             method: "GET",
             headers: {
                 "Authorization": "Bearer LdIoBm1aGT5mCUNt8oZHjlmAPaFP3OSz3RW5HEFW5IUcrqttybk1fSx8NQgRIwvg7G8JRyVR9-yRda_5MKXxtGFu9p1QhCMeQxCdxRZt2SqM8CiFJcIdPdUgrcGKXXYx"
@@ -23,10 +24,11 @@ $('#submit-button').on('click', function () {
         };
         $.ajax(settings).then(function (response) {
             console.log("hello");
+            console.log(response);
             console.log(response.businesses[1].alias)
             var openRestaurants = response.businesses;
             for (let i = 0; i < openRestaurants.length; i++) {
-                openRestaurantsArray.push(openRestaurants.name);
+                openRestaurantsArray.push(openRestaurants[i].name);
                 console.log(openRestaurantsArray);
             } if (beerGardenWeather = true) {
                 console.log(response.businesses)
