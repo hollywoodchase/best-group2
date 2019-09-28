@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
     background: -webkit-linear-gradient(45deg, #DCDCDC, #505050);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
   }
 
@@ -60,6 +60,5 @@
 }
 .btn {
     font-size: 45px;
-}
     font-family: "Merriweather";
 }

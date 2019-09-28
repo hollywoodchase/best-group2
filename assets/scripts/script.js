@@ -179,7 +179,7 @@ var getAvailableTeams = function (city) {
 //         console.log(sportsTeams);
 //     });
     
-}
+
 $('#submit-button').on('click', function () {
     event.preventDefault();
     var userCity = $('#city-input').val().trim();
