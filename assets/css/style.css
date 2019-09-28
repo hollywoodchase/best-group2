@@ -1,3 +1,37 @@
+.card {
+    margin-bottom:10px;
+}
+
+.jumbotron {
+    background-image: url("../images/background-img.jpg");
+    background-size: cover;
+    height: 1000px;
+    display: flex; /* or inline-flex */
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+  }
+
+  .form-inline {
+    display: flex; /* or inline-flex */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  h1 {
+    display: flex; /* or inline-flex */
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(45deg, #DCDCDC, #505050);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  input {
+    border-radius: 0 !important;
+
+  }
 #card-row {
     font-family: "Merriweather";
 }
