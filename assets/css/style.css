@@ -37,11 +37,8 @@
     /* background-image: url("https://i.ytimg.com/vi/fWZ4c66V1P4/maxresdefault.jpg"); */
     height: 100%;
 }
-.card-body {
-    /* background-image: url("https://i.ytimg.com/vi/fWZ4c66V1P4/maxresdefault.jpg"); */
-    background: black;
-    color: white;
-    height: 80vh;
+img {
+    border-radius: 10px;
 }
 .card-header {
     font-size: 40px;
@@ -52,13 +49,21 @@
 .card-body {
     display: flex;
     font-size: 50px;
+    border-radius: 10px;
+    color: white;
+    height: 75vh;
 }
 .card-footer {
     display: flex;
     justify-content: center;
     text-align: center;
 }
-.btn {
-    font-size: 45px;
-    font-family: "Merriweather";
+button {
+    font-size: 50px;
+}
+.hero-button {
+    font-size: 50px;
+}   
+#button-span {
+    font-size:35px;
 }
