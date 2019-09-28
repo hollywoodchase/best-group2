@@ -1,18 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chrissy's Page</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
-<body>
 
-    <input id="city-input" type="text" placeholder="Enter city">
-    <input id="date-input" type="text" placeholder="YYYY-MM-DD">
-    <input id="submit-button" type="submit">
+<body>
+    <div class="container">
+        <a href="./landing.html" class="btn btn-success">Home</a>
+        <div class="d-flex justify-content-center p-5">
+            <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <input id="city-input" type="text" placeholder="Enter city" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <input id="date" type="text" placeholder="YYYY-MM-DD" class="form-control">
+            </div>
+            
+           
+            <div class="col-12">
+                <input id="submit-button" type="submit" class="btn btn-primary">
+            </div>
+        </div>
+    </div>
+
+   
+        </div>
+
+
+
+    </div>
+
+    <!-- what u want to desplay  -->
+    <!-- what are the elements needed -->
+    <!-- title  -->
+    <!-- place  -->
+    <!-- date  -->
+    <!-- time -->
+
+
+    <!-- reidirect from the flash screen -->
+
+    <!-- create two different Html pages  -->
+
+    <!-- check how  to redirect on form submitt -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
@@ -20,4 +64,5 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="assets/scripts/script.js"></script>
 </body>
+
 </html>

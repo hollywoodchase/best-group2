@@ -26,18 +26,18 @@ $('#submit-button').on('click', function() {
         console.log(response);
     });
 
-    // $.get(queryURLBasketball).then(function(response) {
-    //     cityTeams = response.teams;
-    //     var leagues = ["NFL", "NBA", "NHL", "MLB"];
-    //     for (let i = 0; i < cityTeams.length; i++) {
-    //         if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
-    //             proTeams.push(cityTeams[i].strTeam);
-    //         } 
-    //     }
-    // });
-    // var date = $('#date-input').val().trim();
-    // const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/" + date;
-    //     const settings = {
+     $.get(queryURLBasketball).then(function(response) {
+        cityTeams = response.teams;
+        var leagues = ["NFL", "NBA", "NHL", "MLB"];
+        for (let i = 0; i < cityTeams.length; i++) {
+            if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
+                 proTeams.push(cityTeams[i].strTeam);
+             } 
+         }
+     });
+     var date = $('#date-input').val().trim();
+     const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/" + date;
+        const settings = {
     //         url: url,
     //         method: "GET",
     //         headers: {
