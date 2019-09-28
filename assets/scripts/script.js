@@ -1,4 +1,6 @@
 // On push of the submit button, take the value of the city
+<<<<<<< HEAD
+=======
 // var proTeams = [];
 // var gameTonight = false;
 // var cityTeamsTonight = [];
@@ -19,28 +21,47 @@
 var proTeams = [];
 var phillyTeams = [];
 var phillyTeamsTonight = [];
+>>>>>>> 518ceb4147f9539ca3c6b2663f38258b8f7c8760
 
+var beerGardenWeather;
 
 $('#submit-button').on('click', function () {
     event.preventDefault();
+    console.log("submitted");
 
+        var userCity = $('#city-input').val().trim();
+        console.log(userCity);
+        var openRestaurantsArray = [];
 
-    var userCity = $('#city-input').val().trim();
+        // const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=philadelphia";
 
-    const url = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurants&location=" + userCity;
+        const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=" + userCity;
+        console.log(url);
 
-    const settings = {
-        url: url,
-        method: "GET",
-        headers: {
-            "Authorization": "Bearer LdIoBm1aGT5mCUNt8oZHjlmAPaFP3OSz3RW5HEFW5IUcrqttybk1fSx8NQgRIwvg7G8JRyVR9-yRda_5MKXxtGFu9p1QhCMeQxCdxRZt2SqM8CiFJcIdPdUgrcGKXXYx"
-        }
-    };
-    $.ajax(settings).then(function (response) {
-        console.log("hello");
-        console.log(response.businesses[1].alias)
-    })
+        const settings = {
+            url: url,
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer LdIoBm1aGT5mCUNt8oZHjlmAPaFP3OSz3RW5HEFW5IUcrqttybk1fSx8NQgRIwvg7G8JRyVR9-yRda_5MKXxtGFu9p1QhCMeQxCdxRZt2SqM8CiFJcIdPdUgrcGKXXYx"
+            }
+        };
+        $.ajax(settings).then(function (response) {
+            console.log("hello");
+            console.log(response);
+            console.log(response.businesses[1].alias)
+            var openRestaurants = response.businesses;
+            for (let i = 0; i < openRestaurants.length; i++) {
+                openRestaurantsArray.push(openRestaurants[i].name);
+                console.log(openRestaurantsArray);
+            } if (beerGardenWeather = true) {
+                console.log(response.businesses)
+
+            }
+        });
 })
+
+
+
 
 
 // var restaurantsDiv = $("<div>").addClass("card");
@@ -84,6 +105,8 @@ $('#submit-button').on('click', function () {
 
 
 
+<<<<<<< HEAD
+=======
 // var queryURL1 = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + userCity;
 
 // $.get(queryURL1).then(function (response) {
@@ -232,4 +255,5 @@ $('#submit-button').on('click', function () {
 
 
 
+>>>>>>> 518ceb4147f9539ca3c6b2663f38258b8f7c8760
 
