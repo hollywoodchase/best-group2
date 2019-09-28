@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Danny's Group HW</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
 
-    <input id="input" type="text">
+    <input id="city-input" type="text">
     <input id="submit" type="submit">
 
-    
- 
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
@@ -22,14 +25,45 @@
     <script src="assets/scripts/script.js"></script>
     <script>
 
-        
-        $('#submit').on('click', function() {
-            var input = $('#input').val().trim();
-            
+
+        $('#submit').on('click', function () {
+            event.preventDefault();
+
+            var userCity = $('#city-input').val().trim();
+            console.log(userCity);
+            var openRestaurantsArray = [];
+
+            // const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=philadelphia";
+
+            const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=&open_now=true&location=" + userCity;
+            // https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=&open_now=true&location=" + userCity;
+            // console.log(url);
+
+            const settings = {
+                url: url,
+                method: "GET",
+                headers: {
+                    "Authorization": "Bearer LdIoBm1aGT5mCUNt8oZHjlmAPaFP3OSz3RW5HEFW5IUcrqttybk1fSx8NQgRIwvg7G8JRyVR9-yRda_5MKXxtGFu9p1QhCMeQxCdxRZt2SqM8CiFJcIdPdUgrcGKXXYx"
+                }
+            };
+            $.ajax(settings).then(function (response) {
+                var random = Math.floor(Math.random()*20);
+                
+                console.log(response.businesses[random].name)
+                // var openRestaurants = response.businesses;
+                // for (let i = 0; i < openRestaurants.length; i++) {
+                //     openRestaurantsArray.push(openRestaurants[i].name);
+                //     console.log(openRestaurantsArray);
+                // } if (beerGardenWeather = true) {
+                //     console.log(response.businesses)
+
+                // }
+            });
         });
-            
-        
-        
-        </script>
+
+
+
+    </script>
 </body>
+
 </html>
