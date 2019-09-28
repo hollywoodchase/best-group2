@@ -172,7 +172,7 @@ $('#submit-button').on('click', function () {
     console.log(proTeams);
     console.log(sportsTeams);
 });
-=======
+
 
      $.get(queryURLBasketball).then(function(response) {
         cityTeams = response.teams;
