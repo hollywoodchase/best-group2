@@ -33,7 +33,6 @@
 
   }
 #card-row {
-    font-family: "Great Vibes", cursive;
     /* background-image: url("https://i.ytimg.com/vi/fWZ4c66V1P4/maxresdefault.jpg"); */
     height: 100%;
 }
@@ -41,7 +40,10 @@ img {
     border-radius: 10px;
 }
 .card-header {
-    font-size: 40px;
+    font-size: 90px;
+    font-family: 'Montez', cursive;
+    font-weight: 900;
+
 }
 #osman {
     display: none;
@@ -63,6 +65,9 @@ button {
 }
 .hero-button {
     font-size: 50px;
+    font-family: 'Montez', cursive;
+    font-weight: 900;
+
 }   
 #button-span {
     font-size:35px;
