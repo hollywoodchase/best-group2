@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
     background: -webkit-linear-gradient(45deg, #DCDCDC, #505050);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
   }
 
@@ -33,5 +33,37 @@
 
   }
 #card-row {
-    font-family: "Merriweather";
+    font-family: "Great Vibes", cursive;
+    /* background-image: url("https://i.ytimg.com/vi/fWZ4c66V1P4/maxresdefault.jpg"); */
+    height: 100%;
+}
+img {
+    border-radius: 10px;
+}
+.card-header {
+    font-size: 40px;
+}
+#osman {
+    display: none;
+}
+.card-body {
+    display: flex;
+    font-size: 50px;
+    border-radius: 10px;
+    color: white;
+    height: 75vh;
+}
+.card-footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+button {
+    font-size: 50px;
+}
+.hero-button {
+    font-size: 50px;
+}   
+#button-span {
+    font-size:35px;
 }
