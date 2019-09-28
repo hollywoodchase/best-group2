@@ -1,6 +1,6 @@
 // On push of the submit button, take the value of the city
 var proTeams = [];
-// var gameTeams = [];
+var gameTonight = false;
 var cityTeamsTonight = [];
 var cityTeams = [];
 var sportsTeams = [];
@@ -15,7 +15,6 @@ var getAvailableTeams = function (city) {
             }
         }
     });
-
 }
 
 var getEventsBySport = function (sportsID, date) {
@@ -31,21 +30,32 @@ var getEventsBySport = function (sportsID, date) {
     }
     $.ajax(settings).done(function (response) {
         var events = response.events;
+        console.log(events);
         for (let i = 0; i < events.length; i++) {
             var teams = events[i].teams;
             for (let j = 0; j < teams.length; j++) {
                 sportsTeams.push(teams[j].name);
             }
         }
+        // console.log(sportsTeams);
         for (let j = 0; j < sportsTeams.length; j++) {
-            if (proTeams.indexOf(sportsTeams[j]) !== -1) {
-                // if (cityTeamsTonight.indexOf(baseballTeams[j] === -1)) {
+            // if (proTeams.indexOf(sportsTeams[j]) !== -1) {
+            //     if (cityTeamsTonight.indexOf(baseballTeams[j] === -1)) {
+            //     cityTeamsTonight.push(sportsTeams[j]);
+            //     }
+            // };
+            
+            if (proTeams.includes(sportsTeams[j])) {
+                gameTonight = true;
+                console.log("Your team is playing tonight");
                 cityTeamsTonight.push(sportsTeams[j]);
-                // }
-            };
+            } else {
+                // console.log("Your team is NOT playing tonight");
+            }
         }
-        console.log(cityTeamsTonight);
+        console.log(sportsTeams);
     });
+    
 }
 $('#submit-button').on('click', function () {
     event.preventDefault();
@@ -53,7 +63,11 @@ $('#submit-button').on('click', function () {
     var date = $('#date-input').val().trim();
     getAvailableTeams(userCity);
     getEventsBySport(3, date);
+    console.log(proTeams);
+    console.log(sportsTeams);
 });
+<<<<<<< HEAD
+=======
 
      $.get(queryURLBasketball).then(function(response) {
         cityTeams = response.teams;
@@ -97,3 +111,4 @@ $('#submit-button').on('click', function () {
 
 
 
+>>>>>>> 812427b22ae287b3c58c09c7d4e7b44044a71f51
