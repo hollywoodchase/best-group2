@@ -45,6 +45,7 @@
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+        // var rWeather = "";
 
         function weather(cityName) {
 
@@ -52,8 +53,7 @@
 
             //WEATHER!
             var APIKey = "166a433c57516f51dfab1f7edaed8413";
-            var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-                "q=" + cityName + "&units=imperial&appid=" + APIKey;
+            var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + APIKey;
 
             console.log(queryURL);
 
@@ -123,7 +123,8 @@
                 });
 
         }
-
+        weather("Philadelphia");
+    console.log(weather);
         // YELP!
         function yelp(category, cityName) {
 
