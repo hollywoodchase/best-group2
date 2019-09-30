@@ -30,7 +30,6 @@
 
   input {
     border-radius: 0 !important;
-
   }
 #card-row {
     font-family: "Dancing Script", cursive;
@@ -52,16 +51,17 @@
     height: 100vh;
     margin-left: -20px;
     background-size: cover;
-    text-align: center;
-    position: relative;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
-    animation-name: example;
-    animation-duration: 4s;
-    animation-direction: reverse;  
-      
+    text-align: center; 
 } 
+@-webkit-keyframes rise {
+    0%   {font-size: 50px; left:0px; top:1px;}
+    100% {font-size: 10px; left:0px; top:200px;}
+  }
+  
+  @keyframes rise {
+    0%   {font-size: 50px; left:0px; top:1px;}
+    100% {font-size: 10px; left:0px; top:200px;}
+  }
 .card-footer {
     display: flex;
     justify-content: center;
@@ -78,4 +78,11 @@ button {
 }
 .card-text {
     width: 100%;
+    position: relative;
+    -webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: reverse;
+    animation-name: rise;
+    animation-duration: 1.75s;
+    animation-direction: reverse;
 }
