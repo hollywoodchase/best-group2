@@ -113,7 +113,7 @@ function weather(cityName) {
                 category = "pizza";
             }
             document.getElementById('weather-report').innerText = theWeather;
-            document.getElementById('time').innerText = "The time is " + timeNow;
+            document.getElementById('time').innerText = "and it's " + timeNow;
             weatherToday = {
                 windspeed,
                 humidity,
