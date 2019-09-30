@@ -34,7 +34,6 @@
   }
 #card-row {
     font-family: "Great Vibes", cursive;
-    /* background-image: url("https://i.ytimg.com/vi/fWZ4c66V1P4/maxresdefault.jpg"); */
     height: 100%;
 }
 img {
@@ -49,9 +48,9 @@ img {
     border-radius: 10px;
     color: white;
     width: 101vw;
-    height: 95vh;
+    height: 100vh;
     margin-left: -20px;
-
+    background-size: cover;
 } 
 .card-footer {
     display: flex;
