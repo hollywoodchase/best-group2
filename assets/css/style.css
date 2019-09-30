@@ -23,7 +23,7 @@
     display: flex; /* or inline-flex */
     justify-content: center;
     align-items: center;
-    background: -webkit-linear-gradient(45deg, #DCDCDC, #505050); */
+    background: -webkit-linear-gradient(45deg, #DCDCDC, #505050);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -43,16 +43,16 @@ img {
 .card-header {
     font-size: 40px;
 }
-#osman {
-    display: none;
-}
 .card-body {
     display: flex;
     font-size: 50px;
     border-radius: 10px;
     color: white;
-    height: 75vh;
-}
+    width: 101vw;
+    height: 95vh;
+    margin-left: -20px;
+
+} 
 .card-footer {
     display: flex;
     justify-content: center;

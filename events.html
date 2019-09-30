@@ -5,16 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Danny's Group HW</title>
+    <title>Events</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <style>
-    
-        </style>
+    <style>
+
+    </style>
 </head>
 
 <body>
+
+    <div id="eat-page">
+        <div class="container-fluid">
+            <div id="card-row" class="row">
+                <div class="col-sm-12">
+                    <!-- <div id="header" class="card text-center"> -->
+                        <!-- <div class="card-header">
+                            Where You Should Eat
+                        </div> -->
+                    <!-- </div> -->
+                    <div class="card-body" style="background-image: url(assets/images/background-img.jpg)">
+                        <img src="https://www.charactersunlimited.com/wp-content/uploads/2017/03/Zoltar_full.jpg">
+                        <h5 class="card-title">For dinner tonight...</h5>
+                        <p class="card-text">Restaurant title, address, phone number and website</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
     <input id="city-input" type="text">
     <input id="submit" type="submit">
@@ -45,15 +65,16 @@
                 }
             };
             $.ajax(settings).then(function (response) {
-                var random = Math.floor(Math.random()*20);
+                var random = Math.floor(Math.random() * 20);
                 var name = response.businesses[random].name;
                 var phone = response.businesses[random].display_phone;
                 var address = response.businesses[random].location.display_address.join(' ');
                 var website = response.businesses[random].url;
                 // console.log(response.businesses[random]);
                 // console.log(address);
-                $('#response-area').append('<div class="col-sm-5"><div class="card"><div class="card-header">' + name + '</div><div class="card-body"><h5 class="card-title">' + phone + '</h5></div>');
-                    // '</h5><h7 class="card-text">' + address + '</h7><a href="' + website + '" class="btn btn-primary">Visit their website</a></div></div></div>');
+                $('#response-area').append('<div class="col-sm-5"><div class="card"><div class="card-header">' + name + '</div><div class="card-body"><h5 class="card-title">' + phone + '</h5><h7 class="card-text">' + address + '</h7><br><a href="' + website + '">Their Yelp Link</a></div></div></div>');
+                // $('#response-area').append('<div class="col-sm-5"><div class="card"><div class="card-header">' + name + '</div><div class="card-body"><h5 class="card-title">' + phone + '</h5></div>');
+                // '</h5><h7 class="card-text">' + address + '</h7><a href="' + website + '" class="btn btn-primary">Visit their website</a></div></div></div>');
                 // $('#response-area').append(name + phone + address + website);
             });
         });
