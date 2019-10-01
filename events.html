@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Danny's Group HW</title>
+    <title>Events</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+    </style>
 </head>
 
 <body>
+    
 
-    <input id="city-input" type="text">
-    <input id="submit" type="submit">
 
 
 
@@ -30,14 +32,8 @@
             event.preventDefault();
 
             var userCity = $('#city-input').val().trim();
-            console.log(userCity);
             var openRestaurantsArray = [];
-
-            // const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=philadelphia";
-
             const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=&open_now=true&location=" + userCity;
-            // https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=&open_now=true&location=" + userCity;
-            // console.log(url);
 
             const settings = {
                 url: url,
@@ -47,17 +43,17 @@
                 }
             };
             $.ajax(settings).then(function (response) {
-                var random = Math.floor(Math.random()*20);
-                
-                console.log(response.businesses[random].name)
-                // var openRestaurants = response.businesses;
-                // for (let i = 0; i < openRestaurants.length; i++) {
-                //     openRestaurantsArray.push(openRestaurants[i].name);
-                //     console.log(openRestaurantsArray);
-                // } if (beerGardenWeather = true) {
-                //     console.log(response.businesses)
-
-                // }
+                var random = Math.floor(Math.random() * 20);
+                var name = response.businesses[random].name;
+                var phone = response.businesses[random].display_phone;
+                var address = response.businesses[random].location.display_address.join(' ');
+                var website = response.businesses[random].url;
+                // console.log(response.businesses[random]);
+                // console.log(address);
+                $('#response-area').append('<div class="col-sm-5"><div class="card"><div class="card-header">' + name + '</div><div class="card-body"><h5 class="card-title">' + phone + '</h5><h7 class="card-text">' + address + '</h7><br><a href="' + website + '">Their Yelp Link</a></div></div></div>');
+                // $('#response-area').append('<div class="col-sm-5"><div class="card"><div class="card-header">' + name + '</div><div class="card-body"><h5 class="card-title">' + phone + '</h5></div>');
+                // '</h5><h7 class="card-text">' + address + '</h7><a href="' + website + '" class="btn btn-primary">Visit their website</a></div></div></div>');
+                // $('#response-area').append(name + phone + address + website);
             });
         });
 
