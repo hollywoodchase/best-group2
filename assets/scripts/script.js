@@ -157,7 +157,6 @@ $("#submit-button").on("click", function (event) {
 
     // Capture user inputs and store them into variables
     var cityName = $("#city-input").val().trim();
-    var date = $("#date-input").val().trim();
 
     return weather(cityName)
         .then(function (weatherInfo) {
