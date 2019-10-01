@@ -30,37 +30,46 @@ function weather(cityName) {
             let weather = response.weather[0].main;
 
             let category = '';
+            let message = '';
 
             if (temperature > 65 && temperature < 85 && weather === "Clear" && windspeed < 10) {
                 console.log("It's a beautiful sunny day, let's go outside");
+                message = "It's a beautiful sunny day, perfect for a sandwich";
                 category = "sandwiches";
             }
             else if (temperature < 65 && temperature > 0 && weather === "Clear") {
                 console.log("It's nice, but a little chilly");
+                message = "It's a little chilly, let's checkout a gastropub.";
                 category = "gastropubs";
             }
             else if (temperature < 0) {
                 console.log("Holy shit it's cold!");
+                message = "It's freezing out! Time for some comfort food.";
                 category = "comfortfood";
             }
             else if (weather === "Snow") {
                 console.log("Brr! It's snowing");
+                message = "It's snowing... perfect diner weather";
                 category = "Diners";
             }
             else if (weather === "Rain") {
                 console.log("Rain is the worst");
+                message = "Blimey it's raining! Better get some fish n chips";
                 category = "fishnchips";
             }
             else if (windspeed > 20) {
                 console.log("Woah it's so windy out");
+                message = "When the winds blows, so do you on your soup!";
                 category = "soup";
             }
             else if (temperature > 85) {
                 console.log("Ugh, it's too hot out, let's find some AC");
+                message = "It's hot out here, like spicy hot!";
                 category = "tex-mex";
             }
             else {
                 console.log("There is nothing special about the weather today");
+                message = "It's a perfect pizza weather day.";
                 category = "pizza";
             }
 
@@ -75,7 +84,6 @@ function weather(cityName) {
         });
 
 }
-
 // YELP!
 function yelp(category, cityName) {
 
@@ -99,8 +107,8 @@ function yelp(category, cityName) {
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
 
         var restName = $("<h3>").text(restaurantName);
-        var restLat = $("<p>").text(restaurantLat);
-        var restLong = $("<p>").text(restaurantLong);
+        //var restLat = $("<p>").text(restaurantLat);
+        //var restLong = $("<p>").text(restaurantLong);
 
         $("#restaurant-results").append(restName, restLat, restLong);
 
@@ -116,7 +124,6 @@ function yelp(category, cityName) {
     });
 
 }
-
 //EventBrite
 function eventBrite(latitude, longitude) {
     var OAuthToken = "X3AL23CV25F7FKYUFWIW";
@@ -142,17 +149,15 @@ function eventBrite(latitude, longitude) {
 
         var eventNameTag = $("<h3>").text(eventName);
 
-        $("#restaurant-results").append(eventNameTag);
+        $("#event-results").append(eventNameTag);
     })
 }
-
-
 // Capture Button Click
 $("#submit-button").on("click", function (event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
-    $("#splash-page").css("display", "none");
+    $("#q-page").css("display", "none");
     $("#eat-page").css("display", "flex");
 
     // Capture user inputs and store them into variables
