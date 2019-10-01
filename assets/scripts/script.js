@@ -66,8 +66,6 @@ $('#submit-button').on('click', function () {
     console.log(proTeams);
     console.log(sportsTeams);
 });
-<<<<<<< HEAD
-=======
 
      $.get(queryURLBasketball).then(function(response) {
         cityTeams = response.teams;
@@ -111,4 +109,3 @@ $('#submit-button').on('click', function () {
 
 
 
->>>>>>> 812427b22ae287b3c58c09c7d4e7b44044a71f51
