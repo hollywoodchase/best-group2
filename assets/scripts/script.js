@@ -1,114 +1,182 @@
-// On push of the submit button, take the value of the city
-var proTeams = [];
-var gameTonight = false;
-var cityTeamsTonight = [];
-var cityTeams = [];
-var sportsTeams = [];
-var getAvailableTeams = function (city) {
-    var queryURLTeams = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + city;
-    $.get(queryURLTeams).then(function (response) {
-        cityTeams = response.teams;
-        var leagues = ["NFL", "NBA", "NHL", "MLB"];
-        for (let i = 0; i < cityTeams.length; i++) {
-            if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
-                proTeams.push(cityTeams[i].strTeam);
+function weather(cityName) {
+
+    let weatherToday = {};
+
+    //WEATHER!
+    var APIKey = "166a433c57516f51dfab1f7edaed8413";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+        "q=" + cityName + "&units=imperial&appid=" + APIKey;
+
+    console.log(queryURL);
+
+    return $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+
+            console.log(response);
+
+            // Log the data in the console as well
+            console.log("Wind Speed: " + response.wind.speed + "m/h");
+            console.log("Humidity: " + response.main.humidity + "%");
+            console.log("Temperature: " + response.main.temp + "°(F)");
+            console.log("Weather: " + response.weather[0].main);
+            console.log("Description: " + response.weather[0].description);
+
+            let windspeed = response.wind.speed;
+            let humidity = response.main.humidity;
+            let temperature = response.main.temp;
+            let weather = response.weather[0].main;
+
+            let category = '';
+
+            if (temperature > 65 && temperature < 85 && weather === "Clear" && windspeed < 10) {
+                console.log("It's a beautiful sunny day, let's go outside");
+                category = "sandwiches";
             }
-        }
-    });
+            else if (temperature < 65 && temperature > 0 && weather === "Clear") {
+                console.log("It's nice, but a little chilly");
+                category = "gastropubs";
+            }
+            else if (temperature < 0) {
+                console.log("Holy shit it's cold!");
+                category = "comfortfood";
+            }
+            else if (weather === "Snow") {
+                console.log("Brr! It's snowing");
+                category = "Diners";
+            }
+            else if (weather === "Rain") {
+                console.log("Rain is the worst");
+                category = "fishnchips";
+            }
+            else if (windspeed > 20) {
+                console.log("Woah it's so windy out");
+                category = "soup";
+            }
+            else if (temperature > 85) {
+                console.log("Ugh, it's too hot out, let's find some AC");
+                category = "tex-mex";
+            }
+            else {
+                console.log("There is nothing special about the weather today");
+                category = "pizza";
+            }
+
+            weatherToday = {
+                windspeed,
+                humidity,
+                temperature,
+                weather,
+                category
+            }
+            return weatherToday;
+        });
+
 }
 
-var getEventsBySport = function (sportsID, date) {
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://therundown-therundown-v1.p.rapidapi.com/sports/" + sportsID + "/events/" + date + "?include=all_periods&include=scores",
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
-            "x-rapidapi-key": "1eb7eadabemshf0789dca576eb58p1442aejsnece09022835e"
+// YELP!
+function yelp(category, cityName) {
+
+    const url = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurants&open_now=true&categories=" + category + "&location=" + cityName;
+
+    const settings = {
+        url: url,
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer LdIoBm1aGT5mCUNt8oZHjlmAPaFP3OSz3RW5HEFW5IUcrqttybk1fSx8NQgRIwvg7G8JRyVR9-yRda_5MKXxtGFu9p1QhCMeQxCdxRZt2SqM8CiFJcIdPdUgrcGKXXYx"
         }
-    }
-    $.ajax(settings).done(function (response) {
-        var events = response.events;
-        console.log(events);
-        for (let i = 0; i < events.length; i++) {
-            var teams = events[i].teams;
-            for (let j = 0; j < teams.length; j++) {
-                sportsTeams.push(teams[j].name);
-            }
+    };
+    return $.ajax(settings).then(function (response) {
+        console.log(response);
+
+        var randomNum = Math.floor(Math.random() * (response.businesses.length - 0)) + 1;
+        console.log(randomNum);
+
+        var restaurantName = response.businesses[randomNum].name;
+        var restaurantLat = response.businesses[randomNum].coordinates.latitude;
+        var restaurantLong = response.businesses[randomNum].coordinates.longitude;
+
+        var restName = $("<h3>").text(restaurantName);
+        var restLat = $("<p>").text(restaurantLat);
+        var restLong = $("<p>").text(restaurantLong);
+
+        $("#restaurant-results").append(restName, restLat, restLong);
+
+        let coordinates = {
+            latitude : restaurantLat,
+            longitude : restaurantLong
         }
-        // console.log(sportsTeams);
-        for (let j = 0; j < sportsTeams.length; j++) {
-            // if (proTeams.indexOf(sportsTeams[j]) !== -1) {
-            //     if (cityTeamsTonight.indexOf(baseballTeams[j] === -1)) {
-            //     cityTeamsTonight.push(sportsTeams[j]);
-            //     }
-            // };
-            
-            if (proTeams.includes(sportsTeams[j])) {
-                gameTonight = true;
-                console.log("Your team is playing tonight");
-                cityTeamsTonight.push(sportsTeams[j]);
-            } else {
-                // console.log("Your team is NOT playing tonight");
-            }
-        }
-        console.log(sportsTeams);
+
+        console.log(coordinates);
+
+        return coordinates;
+
     });
-    
+
 }
-$('#submit-button').on('click', function () {
+
+//EventBrite
+function eventBrite(latitude, longitude) {
+    var OAuthToken = "X3AL23CV25F7FKYUFWIW";
+
+    var categoryNum1 = 103; // Music 
+    var categoryNum2 = 105; // Performing & Visual Arts
+    //var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&categories=" + categoryNum1 + "&categories=" + categoryNum2 + "&token=" + OAuthToken;
+
+    var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&token=" + OAuthToken;
+
+    console.log(queryURL);
+
+    return $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+
+        var randomNum = Math.floor(Math.random() * (response.events.length - 0)) + 1;
+        console.log(randomNum);
+
+        var eventName = response.events[randomNum].name.text;
+
+        var eventNameTag = $("<h3>").text(eventName);
+
+        $("#restaurant-results").append(eventNameTag);
+    })
+}
+
+
+// Capture Button Click
+$("#submit-button").on("click", function (event) {
+    // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
-    var userCity = $('#city-input').val().trim();
-    var date = $('#date-input').val().trim();
-    getAvailableTeams(userCity);
-    getEventsBySport(3, date);
-    console.log(proTeams);
-    console.log(sportsTeams);
+
+    $("#splash-page").css("display", "none");
+    $("#eat-page").css("display", "flex");
+
+    // Capture user inputs and store them into variables
+    var cityName = $("#city-input").val().trim();
+    var date = $("#date-input").val().trim();
+
+    return weather(cityName)
+        .then(function (weatherInfo) {
+            console.log(weatherInfo, "this is the weather object");
+
+            return yelp(weatherInfo.category, cityName)
+
+        })
+        .then(function (coordinates) {
+            console.log(coordinates);
+
+            return eventBrite(coordinates.latitude, coordinates.longitude)
+
+        })
+
+
+        .catch(function (error) {
+            console.log(error, "this is an error");
+            $("#restaurant-results").append("Sorry the website is down right now");
+        })
+
 });
-<<<<<<< HEAD
-=======
-
-     $.get(queryURLBasketball).then(function(response) {
-        cityTeams = response.teams;
-        var leagues = ["NFL", "NBA", "NHL", "MLB"];
-        for (let i = 0; i < cityTeams.length; i++) {
-            if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
-                 proTeams.push(cityTeams[i].strTeam);
-             } 
-         }
-     });
-     var date = $('#date-input').val().trim();
-     const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/" + date;
-        const settings = {
-    //         url: url,
-    //         method: "GET",
-    //         headers: {
-    //             "x-rapidapi-host": "api-nba-v1.p.rapidapi.com",
-	//             "x-rapidapi-key": "1eb7eadabemshf0789dca576eb58p1442aejsnece09022835e"
-    //         }
-    //     };
-    //     $.ajax(settings).then(function (response) {
-    //         var games = response.api.games;
-    //         var teams = [];
-    //         var hTeam;
-    //         var vTeam;
-    //         for (let j = 0; j < games.length; j++) {
-    //             teams.push(games[j].hTeam.fullName);
-    //             teams.push(games[j].vTeam.fullName);
-    //         }
-    //         for (let k = 0; k < teams.length; k++) {
-    //             if (proTeams.indexOf(teams[k]) !== -1) {
-    //                 cityTeamsTonight.push(teams[k]);
-    //             } 
-    //         }
-    //         console.log(cityTeamsTonight);
-    //     });
-
-
-
-
-
-
-
->>>>>>> 812427b22ae287b3c58c09c7d4e7b44044a71f51
