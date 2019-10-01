@@ -55,6 +55,12 @@ img {
     color: white;
     height: 75vh;
 }
+
+.card-text {
+  font-family: 'Julius Sans One', sans-serif;
+
+}
+
 .card-footer {
     display: flex;
     justify-content: center;

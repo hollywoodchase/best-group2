@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
+
 // On push of the submit button, take the value of the city
-<<<<<<< HEAD
-=======
+
 // var proTeams = [];
 // var gameTonight = false;
 // var cityTeamsTonight = [];
@@ -23,11 +21,9 @@
 var proTeams = [];
 var phillyTeams = [];
 var phillyTeamsTonight = [];
->>>>>>> 518ceb4147f9539ca3c6b2663f38258b8f7c8760
 
 var beerGardenWeather;
 
->>>>>>> 98ffaf7d2da59bd8e58e1f62a4ebcae68393614e
 $('#submit-button').on('click', function () {
     event.preventDefault();
     console.log("submitted");
@@ -38,7 +34,7 @@ $('#submit-button').on('click', function () {
 
         // const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=philadelphia";
 
-        const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza&location=" + userCity;
+        const url = "https://upenn-cors-server.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=&open_now=true&location=" + userCity;
         console.log(url);
 
         const settings = {
@@ -108,10 +104,6 @@ $('#submit-button').on('click', function () {
 
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 // var queryURL1 = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + userCity;
 
 // $.get(queryURL1).then(function (response) {
@@ -257,9 +249,4 @@ $('#submit-button').on('click', function () {
 
 
 
-
->>>>>>> 98ffaf7d2da59bd8e58e1f62a4ebcae68393614e
-
-
->>>>>>> 518ceb4147f9539ca3c6b2663f38258b8f7c8760
 
