@@ -19,7 +19,7 @@
     margin-top: 20px;
   }
 
-  h1 {
+  #question {
     display: flex; /* or inline-flex */
     justify-content: center;
     align-items: center;
@@ -30,8 +30,59 @@
 
   input {
     border-radius: 0 !important;
-
   }
 #card-row {
-    font-family: "Merriweather";
+    font-family: "Dancing Script", cursive;
+    height: 100%;
+}
+.card-header {
+    font-size: 40px;
+}
+.card-title{
+    font-size: 50px;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    border-radius: 10px;
+    color: white;
+    width: 101vw;
+    height: 100vh;
+    margin-left: -20px;
+    background-size: cover;
+    text-align: center; 
+} 
+@-webkit-keyframes rise {
+    0%   {font-size: 50px; left:0px; top:1px;}
+    100% {font-size: 10px; left:0px; top:200px;}
+  }
+  
+  @keyframes rise {
+    0%   {font-size: 50px; left:0px; top:1px;}
+    100% {font-size: 10px; left:0px; top:200px;}
+  }
+.card-footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+button {
+    font-size: 50px;
+}
+#response-area {
+    display: flex;
+}
+#eat-page {
+    display: none;
+}
+.card-text {
+    width: 100%;
+    position: relative;
+    -webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: reverse;
+    animation-name: rise;
+    animation-duration: 1.75s;
+    animation-direction: reverse;
 }
