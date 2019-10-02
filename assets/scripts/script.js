@@ -87,7 +87,6 @@ function weather(cityName) {
         });
 
 }
-
 // YELP!
 function yelp(category, cityName) {
 
@@ -143,7 +142,6 @@ function yelp(category, cityName) {
     });
 
 }
-
 //EventBrite
 function eventBrite(latitude, longitude) {
     var OAuthToken = "X3AL23CV25F7FKYUFWIW";
@@ -177,8 +175,6 @@ function eventBrite(latitude, longitude) {
         $("#event-results").append(eventLink, eventImg);
     })
 }
-
-
 // Capture Button Click
 $("#submit-button").on("click", function (event) {
     // prevent page from refreshing when form tries to submit itself
