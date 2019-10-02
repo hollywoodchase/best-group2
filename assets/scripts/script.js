@@ -122,13 +122,8 @@ function yelp(category, cityName) {
 
         
 
-<<<<<<< HEAD
         var restAddress = $("<p>").text(restaurantAddress);
         var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
-=======
-        var restAddress = $("<p>").text(restaurantAddress).addClass("restaurant-address");
-        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
->>>>>>> master
 
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
