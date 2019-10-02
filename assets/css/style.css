@@ -13,7 +13,6 @@ body {
     margin-bottom:10px;
 }
 
-
   .form-inline {
     display: flex; /* or inline-flex */
     justify-content: center;
@@ -38,7 +37,10 @@ body {
     height: 100%;
 }
 .card-header {
-    font-size: 40px;
+    font-size: 90px;
+    font-family: 'Montez', cursive;
+    font-weight: 900;
+
 }
 .card-title{
     font-size: 50px;
@@ -87,4 +89,15 @@ button {
     animation-name: rise;
     animation-duration: 1.75s;
     animation-direction: reverse;
+}
+.yelp-image {
+  width: 100px;
+  height: 100px;
+}
+.event-image {
+  width: 100px;
+  height: 100px;
+}
+.restaurant-results {
+  font-family: Tahoma, "Geneva", sans-serif;
 }
