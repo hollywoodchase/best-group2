@@ -73,11 +73,14 @@ function weather(cityName) {
                 category = "pizza";
             }
 
+            $("#weather-report").text(message);
+
             weatherToday = {
                 windspeed,
                 humidity,
                 temperature,
                 weather,
+                message,
                 category
             }
             return weatherToday;
@@ -105,16 +108,33 @@ function yelp(category, cityName) {
         var restaurantName = response.businesses[randomNum].name;
         var restaurantLat = response.businesses[randomNum].coordinates.latitude;
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
+        
+        var restaurantImg = response.businesses[randomNum].image_url;
+        console.log(restaurantImg);
+        
+        var restaurantAddress = response.businesses[randomNum].location.display_address[0];
+        var restaurantUrl = response.businesses[randomNum].url;
 
-        var restName = $("<h3>").text(restaurantName);
+        console.log(restaurantAddress);
+
+        var restName = $("<h5>").text(restaurantName);
+        var websiteLink = $("<a>").attr("href", restaurantUrl).html(restaurantName);
+
+        
+
+        var restAddress = $("<p>").text(restaurantAddress).addClass("restaurant-address");
+        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
+
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
 
-        $("#restaurant-results").append(restName, restLat, restLong);
+        setTimeout(function(){$(".card").css("display", "flex"); }, 3000);
+        
+        $("#restaurant-results").append(websiteLink, restAddress, restImg);
 
         let coordinates = {
-            latitude : restaurantLat,
-            longitude : restaurantLong
+            latitude: restaurantLat,
+            longitude: restaurantLong
         }
 
         console.log(coordinates);
@@ -146,10 +166,15 @@ function eventBrite(latitude, longitude) {
         console.log(randomNum);
 
         var eventName = response.events[randomNum].name.text;
+        var eventImage = response.events[randomNum].logo.original.url;
+
+        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image");
 
         var eventNameTag = $("<h3>").text(eventName);
+        var eventUrl = response.events[randomNum].url;
+        var eventLink = $("<a>").attr("href", eventUrl).html(eventNameTag);
 
-        $("#event-results").append(eventNameTag);
+        $("#event-results").append(eventLink, eventImg);
     })
 }
 // Capture Button Click
