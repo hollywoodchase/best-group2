@@ -115,3 +115,14 @@ button {
     animation-duration: 1.75s;
     animation-direction: reverse;
 }
+.yelp-image {
+  width: 100px;
+  height: 100px;
+}
+.event-image {
+  width: 100px;
+  height: 100px;
+}
+.restaurant-results {
+  font-family: Tahoma, "Geneva", sans-serif;
+}
