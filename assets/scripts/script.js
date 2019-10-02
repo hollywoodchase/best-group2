@@ -122,8 +122,13 @@ function yelp(category, cityName) {
 
         
 
+<<<<<<< HEAD
+        var restAddress = $("<p>").text(restaurantAddress);
+        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
+=======
         var restAddress = $("<p>").text(restaurantAddress).addClass("restaurant-address");
         var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
+>>>>>>> master
 
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
@@ -142,7 +147,6 @@ function yelp(category, cityName) {
         return coordinates;
 
     });
-
 }
 //EventBrite
 function eventBrite(latitude, longitude) {
@@ -168,7 +172,7 @@ function eventBrite(latitude, longitude) {
         var eventName = response.events[randomNum].name.text;
         var eventImage = response.events[randomNum].logo.original.url;
 
-        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image");
+        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image d-block mx-auto img-fluid rounded");
 
         var eventNameTag = $("<h3>").text(eventName);
         var eventUrl = response.events[randomNum].url;

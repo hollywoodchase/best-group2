@@ -7,13 +7,26 @@ body {
 }
 
 .jumbotron{
-  background-color: transparent
+  background-color: transparent;
 }
 .card {
     margin-bottom:10px;
     display:none;
 }
 
+<<<<<<< HEAD
+.jumbotron {
+    background-image: url("../images/background-img.jpg");
+    background-size: 1400px 1400px;
+    height: 1000px;
+    display: flex; /* or inline-flex */
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+  }
+
+=======
+>>>>>>> b9121019d0ff07fd08c394e16322807293338aed
   .form-inline {
     display: flex; /* or inline-flex */
     justify-content: center;
@@ -53,8 +66,13 @@ body {
     font-size: 50px;
 }
 <<<<<<< HEAD
+#eat-page {
+    /* display: flex;
+=======
+<<<<<<< HEAD
 .card-body {
     display: flex;
+>>>>>>> master
     flex-direction: column;
     font-size: 50px;
     border-radius: 10px;
@@ -62,8 +80,19 @@ body {
     width: 101vw;
     height: 100vh;
     margin-left: -20px;
+<<<<<<< HEAD
+    background-size: contain;
+    text-align: center;  */
+    background: url('../images/magic-3587375_1920.png') no-repeat center center fixed !important; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+=======
     background-size: cover;
     text-align: center; 
+>>>>>>> master
 } 
 =======
 #homepage {
@@ -143,6 +172,15 @@ button {
 
 >>>>>>> e11bc17984bb52acbc0d3cd1a078718c761184d2
 .yelp-image {
+<<<<<<< HEAD
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+.event-image {
+  width: 300px;
+  height:300px;
+=======
   width: 265px;
   height: 200px;
 }
@@ -153,9 +191,14 @@ button {
 #event-results {
   /* border: 2px solid black; */
   height:  100%;
+>>>>>>> master
 }
 #restaurant-results {
   font-family: Tahoma, "Geneva", sans-serif;
+<<<<<<< HEAD
+}
+
+=======
 /* border: 2px solid black; */
   font-size: 25%;
   /* height:  100%; */
@@ -183,3 +226,4 @@ button {
 .restaurant-address p {
   font-size: 8px;
 }
+>>>>>>> master
