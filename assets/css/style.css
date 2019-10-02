@@ -1,17 +1,18 @@
+body {
+  background: url("../images/background-img.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.jumbotron{
+  background-color: transparent
+}
 .card {
     margin-bottom:10px;
     display:none;
 }
-
-.jumbotron {
-    background-image: url("../images/background-img.jpg");
-    background-size: cover;
-    height: 1000px;
-    display: flex; /* or inline-flex */
-    justify-content: center;
-    align-items: center;
-    margin-top: -100px;
-  }
 
   .form-inline {
     display: flex; /* or inline-flex */
@@ -43,7 +44,10 @@
     height: 100%;
 }
 .card-header {
-    font-size: 40px;
+    font-size: 90px;
+    font-family: 'Montez', cursive;
+    font-weight: 900;
+
 }
 .card-title{
     font-size: 50px;
