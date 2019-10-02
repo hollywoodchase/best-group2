@@ -30,45 +30,57 @@ function weather(cityName) {
             let weather = response.weather[0].main;
 
             let category = '';
+            let message = '';
 
             if (temperature > 65 && temperature < 85 && weather === "Clear" && windspeed < 10) {
                 console.log("It's a beautiful sunny day, let's go outside");
+                message = "It's a beautiful sunny day, perfect for a sandwich";
                 category = "sandwiches";
             }
             else if (temperature < 65 && temperature > 0 && weather === "Clear") {
                 console.log("It's nice, but a little chilly");
+                message = "It's a little chilly, let's checkout a gastropub.";
                 category = "gastropubs";
             }
             else if (temperature < 0) {
                 console.log("Holy shit it's cold!");
+                message = "It's freezing out! Time for some comfort food.";
                 category = "comfortfood";
             }
             else if (weather === "Snow") {
                 console.log("Brr! It's snowing");
+                message = "It's snowing... perfect diner weather";
                 category = "Diners";
             }
             else if (weather === "Rain") {
                 console.log("Rain is the worst");
+                message = "Blimey it's raining! Better get some fish n chips";
                 category = "fishnchips";
             }
             else if (windspeed > 20) {
                 console.log("Woah it's so windy out");
+                message = "When the winds blows, so do you on your soup!";
                 category = "soup";
             }
             else if (temperature > 85) {
                 console.log("Ugh, it's too hot out, let's find some AC");
+                message = "It's hot out here, like spicy hot!";
                 category = "tex-mex";
             }
             else {
                 console.log("There is nothing special about the weather today");
+                message = "It's a perfect pizza weather day.";
                 category = "pizza";
             }
+
+            $("#weather-report").text(message);
 
             weatherToday = {
                 windspeed,
                 humidity,
                 temperature,
                 weather,
+                message,
                 category
             }
             return weatherToday;
@@ -97,12 +109,27 @@ function yelp(category, cityName) {
         var restaurantName = response.businesses[randomNum].name;
         var restaurantLat = response.businesses[randomNum].coordinates.latitude;
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
+        
+        var restaurantImg = response.businesses[randomNum].image_url;
+        console.log(restaurantImg);
+        
+        var restaurantAddress = response.businesses[randomNum].location.display_address[0];
+        var restaurantUrl = response.businesses[randomNum].url;
+
+        console.log(restaurantAddress);
 
         var restName = $("<h3>").text(restaurantName);
-        var restLat = $("<p>").text(restaurantLat);
-        var restLong = $("<p>").text(restaurantLong);
+        var websiteLink = $("<a>").attr("href", restaurantUrl).html(restaurantName);
 
-        $("#restaurant-results").append(restName, restLat, restLong);
+        
+
+        var restAddress = $("<p>").text(restaurantAddress);
+        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
+
+        //var restLat = $("<p>").text(restaurantLat);
+        //var restLong = $("<p>").text(restaurantLong);
+
+        $("#restaurant-results").append(websiteLink, restAddress, restImg);
 
         let coordinates = {
             latitude : restaurantLat,
@@ -139,10 +166,15 @@ function eventBrite(latitude, longitude) {
         console.log(randomNum);
 
         var eventName = response.events[randomNum].name.text;
+        var eventImage = response.events[randomNum].logo.original.url;
+
+        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image");
 
         var eventNameTag = $("<h3>").text(eventName);
+        var eventUrl = response.events[randomNum].url;
+        var eventLink = $("<a>").attr("href", eventUrl).html(eventNameTag);
 
-        $("#restaurant-results").append(eventNameTag);
+        $("#event-results").append(eventLink, eventImg);
     })
 }
 
@@ -152,7 +184,7 @@ $("#submit-button").on("click", function (event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
-    $("#splash-page").css("display", "none");
+    $("#q-page").css("display", "none");
     $("#eat-page").css("display", "flex");
 
     // Capture user inputs and store them into variables
