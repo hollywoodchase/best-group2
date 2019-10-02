@@ -105,12 +105,15 @@ function yelp(category, cityName) {
         var restaurantName = response.businesses[randomNum].name;
         var restaurantLat = response.businesses[randomNum].coordinates.latitude;
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
+        var restaurantImgURL = response.businesses[randomNum].image_url;
 
         var restName = $("<h3>").text(restaurantName);
+        var restImg =$("<img>").attr('src', restaurantImgURL)
+
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
 
-        $("#restaurant-results").append(restName, restLat, restLong);
+        $("#restaurant-results").append(restName, restLat, restLong, restImg);
 
         let coordinates = {
             latitude : restaurantLat,
