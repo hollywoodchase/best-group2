@@ -117,17 +117,19 @@ function yelp(category, cityName) {
 
         console.log(restaurantAddress);
 
-        var restName = $("<h3>").text(restaurantName);
+        var restName = $("<h5>").text(restaurantName);
         var websiteLink = $("<a>").attr("href", restaurantUrl).html(restaurantName);
 
         
 
         var restAddress = $("<p>").text(restaurantAddress);
-        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
+        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
 
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
 
+        setTimeout(function(){$(".card").css("display", "flex"); }, 3000);
+        
         $("#restaurant-results").append(websiteLink, restAddress, restImg);
 
         let coordinates = {
@@ -140,7 +142,6 @@ function yelp(category, cityName) {
         return coordinates;
 
     });
-
 }
 //EventBrite
 function eventBrite(latitude, longitude) {
@@ -166,7 +167,7 @@ function eventBrite(latitude, longitude) {
         var eventName = response.events[randomNum].name.text;
         var eventImage = response.events[randomNum].logo.original.url;
 
-        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image");
+        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image d-block mx-auto img-fluid rounded");
 
         var eventNameTag = $("<h3>").text(eventName);
         var eventUrl = response.events[randomNum].url;
