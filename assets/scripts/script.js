@@ -84,60 +84,6 @@ function weather(cityName) {
                 category
             }
             return weatherToday;
-<<<<<<< HEAD
-
-        });
-
-}
-$('#submit-button').on('click', function () {
-    event.preventDefault();
-    var userCity = $('#city-input').val().trim();
-    var date = $('#date-input').val().trim();
-    getAvailableTeams(userCity);
-    getEventsBySport(3, date);
-    console.log(proTeams);
-    console.log(sportsTeams);
-});
-
-$.get(queryURLBasketball).then(function (response) {
-    cityTeams = response.teams;
-    var leagues = ["NFL", "NBA", "NHL", "MLB"];
-    for (let i = 0; i < cityTeams.length; i++) {
-        if (leagues.indexOf(cityTeams[i].strLeague) !== -1) {
-            proTeams.push(cityTeams[i].strTeam);
-        }
-    }
-});
-var date = $('#date-input').val().trim();
-const url = "https://cors-anywhere.herokuapp.com/https://api-nba-v1.p.rapidapi.com/games/date/" + date;
-const settings = {
-    //         url: url,
-    //         method: "GET",
-    //         headers: {
-    //             "x-rapidapi-host": "api-nba-v1.p.rapidapi.com",
-	//             "x-rapidapi-key": "1eb7eadabemshf0789dca576eb58p1442aejsnece09022835e"
-    //         }
-    //     };
-    //     $.ajax(settings).then(function (response) {
-    //         var games = response.api.games;
-    //         var teams = [];
-    //         var hTeam;
-    //         var vTeam;
-    //         for (let j = 0; j < games.length; j++) {
-    //             teams.push(games[j].hTeam.fullName);
-    //             teams.push(games[j].vTeam.fullName);
-    //         }
-    //         for (let k = 0; k < teams.length; k++) {
-    //             if (proTeams.indexOf(teams[k]) !== -1) {
-    //                 cityTeamsTonight.push(teams[k]);
-    //             } 
-    //         }
-    //         console.log(cityTeamsTonight);
-    //     });
-
-
-
-=======
         });
 
 }
@@ -177,7 +123,7 @@ function yelp(category, cityName) {
         
 
         var restAddress = $("<p>").text(restaurantAddress);
-        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
+        var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
 
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
@@ -194,7 +140,6 @@ function yelp(category, cityName) {
         return coordinates;
 
     });
-
 }
 //EventBrite
 function eventBrite(latitude, longitude) {
@@ -205,7 +150,6 @@ function eventBrite(latitude, longitude) {
     //var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&categories=" + categoryNum1 + "&categories=" + categoryNum2 + "&token=" + OAuthToken;
 
     var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&token=" + OAuthToken;
->>>>>>> 34d7732ac28782bd18874c1bbb3e7e5bddccc3da
 
     console.log(queryURL);
 
@@ -221,7 +165,7 @@ function eventBrite(latitude, longitude) {
         var eventName = response.events[randomNum].name.text;
         var eventImage = response.events[randomNum].logo.original.url;
 
-        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image");
+        var eventImg = $("<img>").attr("src", eventImage).addClass("event-image d-block mx-auto img-fluid rounded");
 
         var eventNameTag = $("<h3>").text(eventName);
         var eventUrl = response.events[randomNum].url;
