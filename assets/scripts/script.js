@@ -113,8 +113,8 @@ function yelp(category, cityName) {
         $("#restaurant-results").append(restName, restLat, restLong);
 
         let coordinates = {
-            latitude : restaurantLat,
-            longitude : restaurantLong
+            latitude: restaurantLat,
+            longitude: restaurantLong
         }
 
         console.log(coordinates);
