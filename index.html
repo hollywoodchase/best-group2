@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
@@ -14,6 +13,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
 <body>
@@ -38,17 +39,23 @@
     </div>
 
     
-
     <div id="eat-page">
         <div class="container-fluid">
             <div id="card-row" class="row">
                 <div class="col-sm-12">
-                    <div class="card-body" style="background-image: url(assets/images/magic-3587375_1920.png);">
+                    <div id="homepage" style="background-image: url(assets/images/magic-3587375_1920.png);">
                         <p id="weather-report" class="card-text"></p>
                         <p id="time" class="card-text"></p>
 
+                        <div class="card results-card">
+                            <div class="card-body">
+                                <div id="restaurant-results"></div>
+                                <div id="event-results"></div>
+                            </div>
+                          </div>
+
+
                         <div id="restaurant-results"></div>
-                        
                         <div id="event-results"></div>
                     </div>
 
