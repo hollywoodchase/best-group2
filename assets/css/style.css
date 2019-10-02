@@ -32,11 +32,7 @@
     border-radius: 0 !important;
   }
 #card-row {
-<<<<<<< HEAD
-    /* background-image: url("https://i.ytimg.com/vi/fWZ4c66V1P4/maxresdefault.jpg"); */
-=======
     font-family: "Dancing Script", cursive;
->>>>>>> 9f5b7364136b87430b0ef83df26d15ad6df322d8
     height: 100%;
 }
 .card-header {
@@ -54,16 +50,6 @@
     font-size: 50px;
     border-radius: 10px;
     color: white;
-<<<<<<< HEAD
-    height: 75vh;
-}
-
-.card-text {
-  font-family: 'Julius Sans One', sans-serif;
-
-}
-
-=======
     width: 101vw;
     height: 100vh;
     margin-left: -20px;
@@ -79,7 +65,6 @@
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
   }
->>>>>>> 9f5b7364136b87430b0ef83df26d15ad6df322d8
 .card-footer {
     display: flex;
     justify-content: center;
@@ -88,22 +73,11 @@
 button {
     font-size: 50px;
 }
-<<<<<<< HEAD
-.hero-button {
-    font-size: 50px;
-    font-family: 'Montez', cursive;
-    font-weight: 900;
-
-}   
-#button-span {
-    font-size:35px;
-=======
 #response-area {
     display: flex;
 }
 #eat-page {
     display: none;
->>>>>>> 9f5b7364136b87430b0ef83df26d15ad6df322d8
 }
 .card-text {
     width: 100%;
