@@ -11,13 +11,33 @@ body {
 }
 .card {
     margin-bottom:10px;
+    display:none;
 }
 
+<<<<<<< HEAD
+.jumbotron {
+    background-image: url("../images/background-img.jpg");
+    background-size: 1400px 1400px;
+    height: 1000px;
+    display: flex; /* or inline-flex */
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+  }
+
+=======
+>>>>>>> b9121019d0ff07fd08c394e16322807293338aed
   .form-inline {
     display: flex; /* or inline-flex */
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+  }
+
+  #eat-page {
+    display: none;
+    background-image: url("../images/magic-3587375_1920.png");
+
   }
 
   #question {
@@ -45,8 +65,14 @@ body {
 .card-title{
     font-size: 50px;
 }
+<<<<<<< HEAD
 #eat-page {
     /* display: flex;
+=======
+<<<<<<< HEAD
+.card-body {
+    display: flex;
+>>>>>>> master
     flex-direction: column;
     font-size: 50px;
     border-radius: 10px;
@@ -54,6 +80,7 @@ body {
     width: 101vw;
     height: 100vh;
     margin-left: -20px;
+<<<<<<< HEAD
     background-size: contain;
     text-align: center;  */
     background: url('../images/magic-3587375_1920.png') no-repeat center center fixed !important; 
@@ -62,7 +89,46 @@ body {
     -o-background-size: cover;
     background-size: cover;
 
+=======
+    background-size: cover;
+    text-align: center; 
+>>>>>>> master
 } 
+=======
+#homepage {
+  display: flex;
+  flex-direction: column;
+  font-size: 50px;
+  border-radius: 10px;
+  color: white;
+  width: 101vw;
+  height: 100vh;
+  margin-left: -20px;
+  background-size: cover;
+  text-align: center; 
+} 
+.card-footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.card-text {
+width: 100%;
+position: relative;
+-webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
+-webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+-webkit-animation-direction: reverse;
+animation-name: rise;
+animation-duration: 1.75s;
+animation-direction: reverse;
+}
+.card-body {
+  height: 100%;
+  background-color: rgba(52, 53, 109, 0.9);
+  /* display: none; */
+}
+
+>>>>>>> e11bc17984bb52acbc0d3cd1a078718c761184d2
 @-webkit-keyframes rise {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
@@ -72,17 +138,22 @@ body {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
   }
+<<<<<<< HEAD
 .card-footer {
     display: flex;
     justify-content: center;
     text-align: center;
 }
+=======
+
+>>>>>>> e11bc17984bb52acbc0d3cd1a078718c761184d2
 button {
     font-size: 50px;
 }
 #response-area {
     display: flex;
 }
+<<<<<<< HEAD
 #eat-page {
     display: none;
 }
@@ -96,7 +167,12 @@ button {
     animation-duration: 1.75s;
     animation-direction: reverse;
 }
+=======
+
+
+>>>>>>> e11bc17984bb52acbc0d3cd1a078718c761184d2
 .yelp-image {
+<<<<<<< HEAD
   width: 300px;
   height: 300px;
   object-fit: cover;
@@ -104,8 +180,50 @@ button {
 .event-image {
   width: 300px;
   height:300px;
+=======
+  width: 265px;
+  height: 200px;
 }
-.restaurant-results {
+.event-image {
+  width: 265px;
+  height: 200px;
+}
+#event-results {
+  /* border: 2px solid black; */
+  height:  100%;
+>>>>>>> master
+}
+#restaurant-results {
   font-family: Tahoma, "Geneva", sans-serif;
+<<<<<<< HEAD
 }
 
+=======
+/* border: 2px solid black; */
+  font-size: 25%;
+  /* height:  100%; */
+}
+
+.results-card {
+  /* display: none; */
+  /* flex-flow: row wrap; */
+  font-family: Tahoma, "Geneva", sans-serif;
+  color: #3a2b58;
+  text-decoration: none;
+  background-color: rgba(52, 53, 109, 0.9);
+  width: 50vw;
+  margin: auto;
+  height: 80vh;
+  align-self: flex-end;
+}
+
+.results-card a {
+  color: #3a2b58;
+}
+.results-card h3 {
+  font-size: 75%;
+}
+.restaurant-address p {
+  font-size: 8px;
+}
+>>>>>>> master
