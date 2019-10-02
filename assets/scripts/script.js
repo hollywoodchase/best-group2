@@ -117,17 +117,19 @@ function yelp(category, cityName) {
 
         console.log(restaurantAddress);
 
-        var restName = $("<h3>").text(restaurantName);
+        var restName = $("<h5>").text(restaurantName);
         var websiteLink = $("<a>").attr("href", restaurantUrl).html(restaurantName);
 
         
 
-        var restAddress = $("<p>").text(restaurantAddress);
+        var restAddress = $("<p>").text(restaurantAddress).addClass("restaurant-address");
         var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image");
 
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
 
+        setTimeout(function(){$(".card").css("display", "flex"); }, 3000);
+        
         $("#restaurant-results").append(websiteLink, restAddress, restImg);
 
         let coordinates = {
