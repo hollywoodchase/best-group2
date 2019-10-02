@@ -7,13 +7,19 @@ body {
 }
 
 .jumbotron{
+<<<<<<< HEAD
+  background-color: transparent
+=======
   background-color: transparent;
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
 }
 .card {
     margin-bottom:10px;
     display:none;
 }
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 .jumbotron {
     background-image: url("../images/background-img.jpg");
@@ -27,6 +33,7 @@ body {
 
 =======
 >>>>>>> b9121019d0ff07fd08c394e16322807293338aed
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
   .form-inline {
     display: flex; /* or inline-flex */
     justify-content: center;
@@ -66,6 +73,8 @@ body {
     font-size: 50px;
 }
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 #eat-page {
     /* display: flex;
 =======
@@ -95,6 +104,7 @@ body {
 >>>>>>> master
 } 
 =======
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
 #homepage {
   display: flex;
   flex-direction: column;
@@ -128,7 +138,10 @@ animation-direction: reverse;
   /* display: none; */
 }
 
+<<<<<<< HEAD
+=======
 >>>>>>> e11bc17984bb52acbc0d3cd1a078718c761184d2
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
 @-webkit-keyframes rise {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
@@ -139,6 +152,9 @@ animation-direction: reverse;
     100% {font-size: 10px; left:0px; top:200px;}
   }
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 .card-footer {
     display: flex;
     justify-content: center;
@@ -147,12 +163,40 @@ animation-direction: reverse;
 =======
 
 >>>>>>> e11bc17984bb52acbc0d3cd1a078718c761184d2
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
 button {
     font-size: 50px;
 }
 #response-area {
     display: flex;
 }
+<<<<<<< HEAD
+
+
+.yelp-image {
+  width: 265px;
+  height: 200px;
+}
+.event-image {
+  width: 265px;
+  height: 200px;
+}
+#event-results {
+  /* border: 2px solid black; */
+  height:  100%;
+}
+#restaurant-results {
+  font-family: Tahoma, "Geneva", sans-serif;
+/* border: 2px solid black; */
+  font-size: 25%;
+  /* height:  100%; */
+}
+
+.results-card {
+  /* display: none; */
+  /* flex-flow: row wrap; */
+  font-family: Tahoma, "Geneva", sans-serif;
+=======
 <<<<<<< HEAD
 #eat-page {
     display: none;
@@ -208,6 +252,7 @@ button {
   /* display: none; */
   /* flex-flow: row wrap; */
   font-family: Tahoma, "Geneva", sans-serif;
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
   color: #3a2b58;
   text-decoration: none;
   background-color: rgba(52, 53, 109, 0.9);
@@ -225,5 +270,9 @@ button {
 }
 .restaurant-address p {
   font-size: 8px;
+<<<<<<< HEAD
+}
+=======
 }
 >>>>>>> master
+>>>>>>> 5d56d85d084fd38a169cddb6ce3279c7dd3f0316
