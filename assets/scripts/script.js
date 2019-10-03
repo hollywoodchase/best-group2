@@ -7,22 +7,23 @@ function weather(cityName) {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
         "q=" + cityName + "&units=imperial&appid=" + APIKey;
 
-    console.log(queryURL);
+    // console.log(queryURL);
 
     return $.ajax({
         url: queryURL,
         method: "GET"
     })
         .then(function (response) {
-
             console.log(response);
 
+            // console.log(response);
+
             // Log the data in the console as well
-            console.log("Wind Speed: " + response.wind.speed + "m/h");
-            console.log("Humidity: " + response.main.humidity + "%");
-            console.log("Temperature: " + response.main.temp + "°(F)");
-            console.log("Weather: " + response.weather[0].main);
-            console.log("Description: " + response.weather[0].description);
+            // console.log("Wind Speed: " + response.wind.speed + "m/h");
+            // console.log("Humidity: " + response.main.humidity + "%");
+            // console.log("Temperature: " + response.main.temp + "°(F)");
+            // console.log("Weather: " + response.weather[0].main);
+            // console.log("Description: " + response.weather[0].description);
 
             let windspeed = response.wind.speed;
             let humidity = response.main.humidity;
@@ -33,42 +34,42 @@ function weather(cityName) {
             let message = '';
 
             if (temperature > 65 && temperature < 85 && weather === "Clear" && windspeed < 10) {
-                console.log("It's a beautiful sunny day, let's go outside");
+                // console.log("It's a beautiful sunny day, let's go outside");
                 message = "It's a beautiful sunny day, perfect for a sandwich";
                 category = "sandwiches";
             }
             else if (temperature < 65 && temperature > 0 && weather === "Clear") {
-                console.log("It's nice, but a little chilly");
+                // console.log("It's nice, but a little chilly");
                 message = "It's a little chilly, let's checkout a gastropub.";
                 category = "gastropubs";
             }
             else if (temperature < 0) {
-                console.log("Holy shit it's cold!");
+                // console.log("Holy shit it's cold!");
                 message = "It's freezing out! Time for some comfort food.";
                 category = "comfortfood";
             }
             else if (weather === "Snow") {
-                console.log("Brr! It's snowing");
+                // console.log("Brr! It's snowing");
                 message = "It's snowing... perfect diner weather";
                 category = "Diners";
             }
             else if (weather === "Rain") {
-                console.log("Rain is the worst");
+                // console.log("Rain is the worst");
                 message = "Blimey it's raining! Better get some fish n chips";
                 category = "fishnchips";
             }
             else if (windspeed > 20) {
-                console.log("Woah it's so windy out");
+                // console.log("Woah it's so windy out");
                 message = "When the winds blows, so do you on your soup!";
                 category = "soup";
             }
             else if (temperature > 85) {
-                console.log("Ugh, it's too hot out, let's find some AC");
+                // console.log("Ugh, it's too hot out, let's find some AC");
                 message = "It's hot out here, like spicy hot!";
                 category = "tex-mex";
             }
             else {
-                console.log("There is nothing special about the weather today");
+                // console.log("There is nothing special about the weather today");
                 message = "It's a perfect pizza weather day.";
                 category = "pizza";
             }
@@ -100,27 +101,25 @@ function yelp(category, cityName) {
         }
     };
     return $.ajax(settings).then(function (response) {
-        console.log(response);
+        // console.log(response);
 
         var randomNum = Math.floor(Math.random() * (response.businesses.length - 0)) + 1;
-        console.log(randomNum);
+        // console.log(randomNum);
 
         var restaurantName = response.businesses[randomNum].name;
         var restaurantLat = response.businesses[randomNum].coordinates.latitude;
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
         
         var restaurantImg = response.businesses[randomNum].image_url;
-        console.log(restaurantImg);
+        // console.log(restaurantImg);
         
         var restaurantAddress = response.businesses[randomNum].location.display_address[0];
         var restaurantUrl = response.businesses[randomNum].url;
 
-        console.log(restaurantAddress);
+        // console.log(restaurantAddress);
 
         var restName = $("<h5>").text(restaurantName);
         var websiteLink = $("<a>").attr("href", restaurantUrl).html(restaurantName);
-
-        
 
         var restAddress = $("<p>").text(restaurantAddress);
         var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
@@ -130,14 +129,15 @@ function yelp(category, cityName) {
 
         setTimeout(function(){$(".card").css("display", "flex"); }, 3000);
         
-        $("#restaurant-results").append(websiteLink, restAddress, restImg);
+        // $("#restaurant-results").append(websiteLink, restAddress, restImg);
+        
 
         let coordinates = {
             latitude: restaurantLat,
             longitude: restaurantLong
         }
 
-        console.log(coordinates);
+        // console.log(coordinates);
 
         return coordinates;
 
@@ -153,16 +153,16 @@ function eventBrite(latitude, longitude) {
 
     var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&token=" + OAuthToken;
 
-    console.log(queryURL);
+    // console.log(queryURL);
 
     return $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
+        // console.log(response);
 
         var randomNum = Math.floor(Math.random() * (response.events.length - 0)) + 1;
-        console.log(randomNum);
+        // console.log(randomNum);
 
         var eventName = response.events[randomNum].name.text;
         var eventImage = response.events[randomNum].logo.original.url;
@@ -180,31 +180,29 @@ function eventBrite(latitude, longitude) {
 $("#submit-button").on("click", function (event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
-
     $("#q-page").css("display", "none");
     $("#eat-page").css("display", "flex");
-
     // Capture user inputs and store them into variables
     var cityName = $("#city-input").val().trim();
 
     return weather(cityName)
         .then(function (weatherInfo) {
-            console.log(weatherInfo, "this is the weather object");
+            // console.log(weatherInfo, "this is the weather object");
 
             return yelp(weatherInfo.category, cityName)
 
         })
         .then(function (coordinates) {
-            console.log(coordinates);
+            // console.log(coordinates);
 
             return eventBrite(coordinates.latitude, coordinates.longitude)
 
         })
-
+        
 
         .catch(function (error) {
-            console.log(error, "this is an error");
+            // console.log(error, "this is an error");
             $("#restaurant-results").append("Sorry the website is down right now");
         })
-
+        
 });
