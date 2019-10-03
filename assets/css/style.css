@@ -1,10 +1,4 @@
-body {
-  background: url("../images/background-img.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
 
 .jumbotron{
   background-color: transparent
@@ -13,19 +7,28 @@ body {
     margin-bottom:10px;
     display:none;
 }
-
-.jumbotron {
-    background-image: url("../images/background-img.jpg");
-    background-size: 1400px 1400px;
-    height: 1000px;
-    display: flex; /* or inline-flex */
+.container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -100px;
+    align-self: center;
   }
-
+  .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    /* border: 2px solid black; */
+  }
+#q-page {
+  background-image: url("../images/background-img.jpg");
+  background-size: cover;
+  height: 100vh;
+}
   .form-inline {
-    display: flex; /* or inline-flex */
+    display: flex; 
     justify-content: center;
     align-items: center;
     margin-top: 20px;
@@ -34,7 +37,6 @@ body {
   #eat-page {
     display: none;
     background-image: url("../images/magic-3587375_1920.png");
-
   }
 
   #question {
@@ -63,13 +65,8 @@ body {
     font-size: 50px;
 }
 
-#eat-page {
-    /* display: flex;
-=======
-<<<<<<< HEAD
 .card-body {
     display: flex;
->>>>>>> master
     flex-direction: column;
     font-size: 50px;
     border-radius: 10px;
@@ -101,8 +98,8 @@ body {
 .card-text {
 width: 100%;
 position: relative;
--webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
--webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+-webkit-animation-name: rise; 
+-webkit-animation-duration: 1.75s; 
 -webkit-animation-direction: reverse;
 animation-name: rise;
 animation-duration: 1.75s;
@@ -111,25 +108,22 @@ animation-direction: reverse;
 .card-body {
   height: 100%;
   background-color: rgba(52, 53, 109, 0.9);
-  /* display: none; */
+  display: none; 
 }
 
 @-webkit-keyframes rise {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
   }
-  
   @keyframes rise {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
   }
-
 .card-footer {
     display: flex;
     justify-content: center;
     text-align: center;
 }
-
 button {
     font-size: 50px;
 }
@@ -146,29 +140,24 @@ button {
   height: 200px;
 }
 #event-results {
-  /* border: 2px solid black; */
   height:  100%;
 }
 #restaurant-results {
   font-family: Tahoma, "Geneva", sans-serif;
-/* border: 2px solid black; */
   font-size: 25%;
-  /* height:  100%; */
+  height:  100%;
 }
 
 .results-card {
-  /* display: none; */
-  /* flex-flow: row wrap; */
+  display: none;
+  flex-flow: row wrap;
   font-family: Tahoma, "Geneva", sans-serif;
-}
-#eat-page {
-    display: none;
 }
 .card-text {
     width: 100%;
     position: relative;
-    -webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: rise;
+    -webkit-animation-duration: 1.75s;
     -webkit-animation-direction: reverse;
     animation-name: rise;
     animation-duration: 1.75s;
@@ -182,20 +171,15 @@ button {
   width: 265px;
   height: 200px;
 }
-#event-results {
-  /* border: 2px solid black; */
-  height:  100%;
-}
+
 #restaurant-results {
   font-family: Tahoma, "Geneva", sans-serif;
-/* border: 2px solid black; */
   font-size: 25%;
-  /* height:  100%; */
+  height:  100%;
 }
-
 .results-card {
-  /* display: none; */
-  /* flex-flow: row wrap; */
+  display: none;
+  flex-flow: row wrap;
   font-family: Tahoma, "Geneva", sans-serif;
   color: #3a2b58;
   text-decoration: none;
@@ -205,7 +189,6 @@ button {
   height: 80vh;
   align-self: flex-end;
 }
-
 .results-card a {
   color: #3a2b58;
 }
