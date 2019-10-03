@@ -200,7 +200,7 @@
 
             return weather(cityName)
                 .then(function (weatherInfo) {
-                    console.log(weatherInfo, "this is the weather object");
+                    // console.log(weatherInfo, "this is the weather object");
 
                     return yelp(weatherInfo.category, cityName)
 

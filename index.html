@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -25,25 +25,25 @@
                 <form class="form-inline">
                     <div class="row">
                         <div class="">
-                                <div class="input-group mb-3">
-                                        <label for="City" class="sr-only">City</label>
-                                    <input id="city-input" type="text" size="50" class="form-control" id="city"
-                                        placeholder="Location">
-                                    <div class="input-group-append">
-                                      <button id="submit-button" class="btn btn-success" type="submit"><i
-                                        class="fa fa-search"></i></button>
-                                    </div>
-                                  </div>
+                            <div class="input-group mb-3">
+                                <label for="City" class="sr-only">City</label>
+                                <input id="city-input" type="text" size="50" class="form-control" id="city"
+                                    placeholder="Location">
+                                <div class="input-group-append">
+                                    <button id="submit-button" class="btn btn-success" type="submit"><i
+                                            class="fa fa-search"></i></button>
+                                </div>
+                            </div>
 
                         </div>
-                        
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    
+
     <div id="eat-page">
         <div class="container-fluid">
             <div id="card-row" class="row">
@@ -52,21 +52,13 @@
                         <p id="weather-report" class="card-text"></p>
                         <p id="time" class="card-text"></p>
 
-                        <div class="card results-card">
-                            <div class="card-body">
-                                <div id="restaurant-results"></div>
-                                <div id="event-results"></div>
-                            </div>
-                          </div>
-
-
-                        <!-- <div id="restaurant-results"></div>
-                        <div id="event-results"></div> -->
-
-                        <div id="restaurant-results"></div>
-                        <div id="event-results"></div>
+                        <div class="card results-card results">
+                            <p id="words-left" class="words">A restaurant ⮑</p>
+                            <p id="restaurant-results"></p>
+                            <p id="event-results"></p>
+                            <p id="words-left" class="words">⮐ And an event </p>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -77,7 +69,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="assets/scripts/script.js"></script>
-  
+
 </body>
 
 </html>
