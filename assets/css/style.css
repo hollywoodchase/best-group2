@@ -152,14 +152,14 @@ button {
 #event-results {
   /* height:  50%; */
   /* border: 2px solid black; */
-  max-width: 40%;
+  max-width: 50%;
 }
 #restaurant-results {
   font-family: 'Bree serif', sans-serif;
   font-size: 25%;
   /* height:  50%; */
   /* border: 2px solid black; */
-  max-width: 40%;
+  max-width: 50%;
 }
 .card-text {
     width: 100%;
@@ -213,4 +213,11 @@ button {
 }
 .words {
   font-family: "Dancing Script", cursive;
+}
+.results {
+  min-width: 400px;
+}
+#try-again-btn {
+  background-color: purple !important;
+  font-size: 25px !important;
 }
