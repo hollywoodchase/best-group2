@@ -84,6 +84,7 @@ function weather(cityName) {
                 message,
                 category
             }
+            console.log(weatherToday);
             return weatherToday;
         });
 
@@ -205,7 +206,10 @@ $("#submit-button").on("click", function (event) {
         })
         .catch(function (error) {
             // console.log(error, "this is an error");
-            $("#restaurant-results").append('<button type=submit>');
+            $("#event-results").append('<button type="submit" id="try-again-btn" class="btn btn-primary">Try Again</button>');
+            $('#try-again-btn').on('click', function() {
+                document.location.reload();
+            });
         });
         
         
