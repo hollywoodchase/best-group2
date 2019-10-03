@@ -14,7 +14,7 @@ function weather(cityName) {
         method: "GET"
     })
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
 
             // console.log(response);
 
@@ -74,7 +74,7 @@ function weather(cityName) {
                 category = "pizza";
             }
 
-            $("#weather-report").text(message);
+            $("#weather-report").html(message + "<br>so we recommend...");
 
             weatherToday = {
                 windspeed,
@@ -119,30 +119,30 @@ function yelp(category, cityName) {
         // console.log(restaurantAddress);
 
         var restName = $("<h5>").text(restaurantName);
-        var websiteLink = $("<a>").attr("href", restaurantUrl).html(restaurantName);
+        var restAddress = $("<h5>").text(restaurantAddress);
+        var websiteLink = $("<a>").attr({
+            href: restaurantUrl,
+            class: "link"
+        }).html(restaurantName);
 
-        var restAddress = $("<p>").text(restaurantAddress);
         var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
 
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
 
-        setTimeout(function(){$(".card").css("display", "flex"); }, 3000);
-        
-        // $("#restaurant-results").append(websiteLink, restAddress, restImg);
-        
+            // $('#restaurant-results').append('<h1>Hello</h1>');
+            $("#restaurant-results").append(websiteLink, restAddress, restImg);
+        setTimeout(function(){$(".card").css("display", "flex"); }, 2000);
 
         let coordinates = {
             latitude: restaurantLat,
             longitude: restaurantLong
         }
 
-        // console.log(coordinates);
-
         return coordinates;
-
     });
 }
+
 //EventBrite
 function eventBrite(latitude, longitude) {
     var OAuthToken = "X3AL23CV25F7FKYUFWIW";
@@ -169,11 +169,15 @@ function eventBrite(latitude, longitude) {
 
         var eventImg = $("<img>").attr("src", eventImage).addClass("event-image d-block mx-auto img-fluid rounded");
 
-        var eventNameTag = $("<h3>").text(eventName);
+        var eventNameTag = $("<h5>").text(eventName);
         var eventUrl = response.events[randomNum].url;
-        var eventLink = $("<a>").attr("href", eventUrl).html(eventNameTag);
+        var eventLink = $("<a>").attr({
+            href: eventUrl,
+            class: "link"
+        }).html(eventNameTag);
 
-        $("#event-results").append(eventLink, eventImg);
+        $('#event-results').append(eventLink, eventImg);
+        
     })
 }
 // Capture Button Click
@@ -190,19 +194,19 @@ $("#submit-button").on("click", function (event) {
             // console.log(weatherInfo, "this is the weather object");
 
             return yelp(weatherInfo.category, cityName)
-
+                .then(function(coordinates) {
+                    // console.log(coordinates);
+                    return eventBrite(coordinates.latitude, coordinates.longitude)
+                    // .then(function(eventInfo) {
+                        // console.log(eventInfo);
+                    // });
+                })
+            
         })
-        .then(function (coordinates) {
-            // console.log(coordinates);
-
-            return eventBrite(coordinates.latitude, coordinates.longitude)
-
-        })
-        
-
         .catch(function (error) {
             // console.log(error, "this is an error");
-            $("#restaurant-results").append("Sorry the website is down right now");
-        })
+            $("#restaurant-results").append('<button type=submit>');
+        });
+        
         
 });
