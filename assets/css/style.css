@@ -217,7 +217,7 @@ button {
 .results {
   min-width: 400px;
 }
-#try-again-btn {
+.try-again {
   background-color: purple !important;
   font-size: 25px !important;
 }

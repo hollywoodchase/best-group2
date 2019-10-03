@@ -1,3 +1,5 @@
+var error = false;
+// var button = ''
 function weather(cityName) {
 
     let weatherToday = {};
@@ -14,7 +16,7 @@ function weather(cityName) {
         method: "GET"
     })
         .then(function (response) {
-            // console.log(response);
+
 
             // console.log(response);
 
@@ -74,8 +76,11 @@ function weather(cityName) {
                 category = "pizza";
             }
 
-            $("#weather-report").html(message + "<br>so we recommend...");
-
+            $("#weather-report").html(message + "<br>We recommend...");
+           
+            // setTimeout(function () { $("#weather-report").append('<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
+                // '<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
+            
             weatherToday = {
                 windspeed,
                 humidity,
@@ -84,8 +89,10 @@ function weather(cityName) {
                 message,
                 category
             }
-            console.log(weatherToday);
             return weatherToday;
+        })
+        .catch(function (error) {
+            $("#weather-report").html("We've never heard of that city<br><button type='submit' class='btn btn-primary try-again'>Try Again</button>");
         });
 
 }
@@ -110,10 +117,10 @@ function yelp(category, cityName) {
         var restaurantName = response.businesses[randomNum].name;
         var restaurantLat = response.businesses[randomNum].coordinates.latitude;
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
-        
+
         var restaurantImg = response.businesses[randomNum].image_url;
         // console.log(restaurantImg);
-        
+
         var restaurantAddress = response.businesses[randomNum].location.display_address[0];
         var restaurantUrl = response.businesses[randomNum].url;
 
@@ -131,9 +138,12 @@ function yelp(category, cityName) {
         //var restLat = $("<p>").text(restaurantLat);
         //var restLong = $("<p>").text(restaurantLong);
 
-            // $('#restaurant-results').append('<h1>Hello</h1>');
-            $("#restaurant-results").append(websiteLink, restAddress, restImg);
-        setTimeout(function(){$(".card").css("display", "flex"); }, 2000);
+        // $('#restaurant-results').append('<h1>Hello</h1>');
+        $("#restaurant-results").append(websiteLink, restAddress, restImg);
+        setTimeout(function () { $(".card").css("display", "flex"); }, 2000);
+        $('.try-again').on('click', function () {
+            document.location.reload();
+        });
 
         let coordinates = {
             latitude: restaurantLat,
@@ -178,7 +188,7 @@ function eventBrite(latitude, longitude) {
         }).html(eventNameTag);
 
         $('#event-results').append(eventLink, eventImg);
-        
+
     })
 }
 // Capture Button Click
@@ -195,22 +205,23 @@ $("#submit-button").on("click", function (event) {
             // console.log(weatherInfo, "this is the weather object");
 
             return yelp(weatherInfo.category, cityName)
-                .then(function(coordinates) {
+                .then(function (coordinates) {
                     // console.log(coordinates);
                     return eventBrite(coordinates.latitude, coordinates.longitude)
                     // .then(function(eventInfo) {
-                        // console.log(eventInfo);
+                    // console.log(eventInfo);
                     // });
                 })
-            
+
         })
         .catch(function (error) {
-            // console.log(error, "this is an error");
-            $("#event-results").append('<button type="submit" id="try-again-btn" class="btn btn-primary">Try Again</button>');
-            $('#try-again-btn').on('click', function() {
+            event.preventDefault();
+            $("#event-results").append('<button type="submit" id="try-again" class="btn btn-primary try-again">Try Again</button>');
+            $('.try-again').on('click', function () {
                 document.location.reload();
             });
+            
         });
-        
-        
+
+
 });
