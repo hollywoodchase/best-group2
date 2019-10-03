@@ -78,7 +78,7 @@ function weather(cityName) {
 
             $("#weather-report").html(message + "<br>We recommend...");
            
-            // setTimeout(function () { $("#weather-report").append('<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
+            setTimeout(function () { $("#weather-report").append('<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
                 // '<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
             
             weatherToday = {
@@ -141,9 +141,6 @@ function yelp(category, cityName) {
         // $('#restaurant-results').append('<h1>Hello</h1>');
         $("#restaurant-results").append(websiteLink, restAddress, restImg);
         setTimeout(function () { $(".card").css("display", "flex"); }, 2000);
-        $('.try-again').on('click', function () {
-            document.location.reload();
-        });
 
         let coordinates = {
             latitude: restaurantLat,
@@ -224,4 +221,7 @@ $("#submit-button").on("click", function (event) {
         });
 
 
+});
+$(document).on('click', ".try-again", function () {
+    document.location.reload();
 });
