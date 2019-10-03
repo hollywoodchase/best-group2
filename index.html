@@ -24,14 +24,19 @@
                 <h1 id="question" class="display-4">Where should you go tonight?</h1><br><br><br><br>
                 <form class="form-inline">
                     <div class="row">
-                        <div class="form-group mb-2">
-                            <label for="City" class="sr-only">City</label>
-                            <input id="city-input" type="text" size="50" class="form-control" id="city"
-                                placeholder="Location">
+                        <div class="">
+                                <div class="input-group mb-3">
+                                        <label for="City" class="sr-only">City</label>
+                                    <input id="city-input" type="text" size="50" class="form-control" id="city"
+                                        placeholder="Location">
+                                    <div class="input-group-append">
+                                      <button id="submit-button" class="btn btn-success" type="submit"><i
+                                        class="fa fa-search"></i></button>
+                                    </div>
+                                  </div>
+
                         </div>
-                        <button type="submit" id="submit-button" class="btn btn-primary mb-2"><i
-                                class="fa fa-search"></i>
-                        </button>
+                        
                     </div>
                 </form>
             </div>
@@ -57,6 +62,9 @@
 
                         <!-- <div id="restaurant-results"></div>
                         <div id="event-results"></div> -->
+
+                        <div id="restaurant-results"></div>
+                        <div id="event-results"></div>
                     </div>
 
                 </div>
