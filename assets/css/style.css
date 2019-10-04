@@ -1,10 +1,4 @@
-body {
-  background: url("../images/background-img.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
 
 .jumbotron{
   background-color: transparent
@@ -13,19 +7,28 @@ body {
     margin-bottom:10px;
     display:none;
 }
-
-.jumbotron {
-    background-image: url("../images/background-img.jpg");
-    background-size: 1400px 1400px;
-    height: 1000px;
-    display: flex; /* or inline-flex */
+.container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -100px;
+    align-self: center;
   }
-
+  .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    /* border: 2px solid black; */
+  }
+#q-page {
+  background-image: url("../images/background-img.jpg");
+  background-size: cover;
+  height: 100vh;
+}
   .form-inline {
-    display: flex; /* or inline-flex */
+    display: flex; 
     justify-content: center;
     align-items: center;
     margin-top: 20px;
@@ -34,7 +37,6 @@ body {
   #eat-page {
     display: none;
     background-image: url("../images/magic-3587375_1920.png");
-
   }
 
   #question {
@@ -63,23 +65,14 @@ body {
     font-size: 50px;
 }
 
-#eat-page {
-    /* display: flex;
-=======
-<<<<<<< HEAD
-.card-body {
+/* .card-body {
     display: flex;
->>>>>>> master
-    flex-direction: column;
     font-size: 50px;
     border-radius: 10px;
-    color: white;
-    width: 101vw;
-    height: 100vh;
-    margin-left: -20px;
     background-size: cover;
     text-align: center; 
-} 
+    border: 2px solid black;
+}  */
 
 #homepage {
   display: flex;
@@ -101,35 +94,46 @@ body {
 .card-text {
 width: 100%;
 position: relative;
--webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
--webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+-webkit-animation-name: rise; 
+-webkit-animation-duration: 1.75s; 
 -webkit-animation-direction: reverse;
 animation-name: rise;
 animation-duration: 1.75s;
 animation-direction: reverse;
 }
-.card-body {
-  height: 100%;
-  background-color: rgba(52, 53, 109, 0.9);
-  /* display: none; */
+.results {
+-webkit-animation-name: fall; 
+-webkit-animation-duration: 1.75s; 
+/* -webkit-animation-direction: reverse; */
+animation-name: fall;
+animation-duration: 1.75s;
+/* animation-direction: reverse; */
 }
+
 
 @-webkit-keyframes rise {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
   }
-  
   @keyframes rise {
     0%   {font-size: 50px; left:0px; top:1px;}
     100% {font-size: 10px; left:0px; top:200px;}
   }
-
+  @-webkit-keyframes fall {
+    0%   {font-size: 50px; left: 600px; max-width: 5%; bottom:200px; opacity: 0.1}
+    50% {opacity: 0.5;}
+    100% {font-size: 10px; left: 400px; max-width: 40%; bottom:0; opacity: 1;}
+  }
+  @keyframes fall {
+    0%   {font-size: 50px; left: 600px; max-width: 5%; bottom:200px; opacity: 0.1;}
+    50% {opacity: 0.5;}
+    100% {font-size: 10px; left: 400px; max-width: 40%; bottom:0; opacity: 1;}
+  }
 .card-footer {
     display: flex;
     justify-content: center;
     text-align: center;
 }
-
 button {
     font-size: 50px;
 }
@@ -138,80 +142,82 @@ button {
 }
 
 .yelp-image {
-  width: 265px;
-  height: 200px;
+  width: 200px;
+  height: 150px;
 }
 .event-image {
-  width: 265px;
-  height: 200px;
+  width: 200px;
+  height: 150px;
 }
 #event-results {
+  /* height:  50%; */
   /* border: 2px solid black; */
-  height:  100%;
+  max-width: 50%;
 }
 #restaurant-results {
-  font-family: Tahoma, "Geneva", sans-serif;
-/* border: 2px solid black; */
+  font-family: 'Bree serif', sans-serif;
   font-size: 25%;
-  /* height:  100%; */
-}
-
-.results-card {
-  /* display: none; */
-  /* flex-flow: row wrap; */
-  font-family: Tahoma, "Geneva", sans-serif;
-}
-#eat-page {
-    display: none;
+  /* height:  50%; */
+  /* border: 2px solid black; */
+  max-width: 50%;
 }
 .card-text {
     width: 100%;
     position: relative;
-    -webkit-animation-name: rise; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1.75s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: rise;
+    -webkit-animation-duration: 1.75s;
     -webkit-animation-direction: reverse;
     animation-name: rise;
     animation-duration: 1.75s;
     animation-direction: reverse;
 }
 .yelp-image {
-  width: 265px;
-  height: 200px;
+  width: 100px;
+  height: 75px;
 }
 .event-image {
-  width: 265px;
-  height: 200px;
-}
-#event-results {
-  /* border: 2px solid black; */
-  height:  100%;
-}
-#restaurant-results {
-  font-family: Tahoma, "Geneva", sans-serif;
-/* border: 2px solid black; */
-  font-size: 25%;
-  /* height:  100%; */
+  width: 100px;
+  height: 75px;
 }
 
 .results-card {
-  /* display: none; */
-  /* flex-flow: row wrap; */
-  font-family: Tahoma, "Geneva", sans-serif;
-  color: #3a2b58;
-  text-decoration: none;
+  display: none;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-family: 'Bree serif', sans-serif;
+  color: white;
   background-color: rgba(52, 53, 109, 0.9);
-  width: 50vw;
   margin: auto;
-  height: 80vh;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  font-size: 50px;
+  border-radius: 10px;
+  background-size: cover;
+  text-align: center; 
+  /* border: 2px solid black; */
 }
 
-.results-card a {
-  color: #3a2b58;
+.link {
+  /* font-size: 75%; */
+  font-size: 30px;
+  color: white;
 }
-.results-card h3 {
-  font-size: 75%;
-}
+/* #restaurant-results h5 {
+  color: green;
+} */
 .restaurant-address p {
   font-size: 8px;
+}
+.words {
+  font-family: "Dancing Script", cursive;
+}
+.results {
+  min-width: 400px;
+}
+.try-again {
+  background-color: purple !important;
+  font-size: 25px !important;
 }
