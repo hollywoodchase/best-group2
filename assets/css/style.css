@@ -20,7 +20,7 @@
     justify-content: center;
     align-items: center;
     height: 90%;
-    /* border: 2px solid black; */
+   
   }
 #q-page {
   background-image: url("../images/background-img.jpg");
@@ -40,7 +40,7 @@
   }
 
   #question {
-    display: flex; /* or inline-flex */
+    display: flex; 
     justify-content: center;
     align-items: center;
     background: -webkit-linear-gradient(45deg, #DCDCDC, #505050);
@@ -65,14 +65,6 @@
     font-size: 50px;
 }
 
-/* .card-body {
-    display: flex;
-    font-size: 50px;
-    border-radius: 10px;
-    background-size: cover;
-    text-align: center; 
-    border: 2px solid black;
-}  */
 
 #homepage {
   display: flex;
@@ -104,10 +96,10 @@ animation-direction: reverse;
 .results {
 -webkit-animation-name: fall; 
 -webkit-animation-duration: 1.75s; 
-/* -webkit-animation-direction: reverse; */
+
 animation-name: fall;
 animation-duration: 1.75s;
-/* animation-direction: reverse; */
+
 }
 
 
@@ -150,15 +142,13 @@ button {
   height: 150px;
 }
 #event-results {
-  /* height:  50%; */
-  /* border: 2px solid black; */
+ 
   max-width: 50%;
 }
 #restaurant-results {
   font-family: 'Bree serif', sans-serif;
   font-size: 25%;
-  /* height:  50%; */
-  /* border: 2px solid black; */
+ 
   max-width: 50%;
 }
 .card-text {
@@ -197,17 +187,15 @@ button {
   border-radius: 10px;
   background-size: cover;
   text-align: center; 
-  /* border: 2px solid black; */
+
 }
 
 .link {
-  /* font-size: 75%; */
+ 
   font-size: 30px;
   color: white;
 }
-/* #restaurant-results h5 {
-  color: green;
-} */
+
 .restaurant-address p {
   font-size: 8px;
 }

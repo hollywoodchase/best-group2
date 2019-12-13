@@ -17,16 +17,6 @@ function weather(cityName) {
     })
         .then(function (response) {
 
-
-            // console.log(response);
-
-            // Log the data in the console as well
-            // console.log("Wind Speed: " + response.wind.speed + "m/h");
-            // console.log("Humidity: " + response.main.humidity + "%");
-            // console.log("Temperature: " + response.main.temp + "°(F)");
-            // console.log("Weather: " + response.weather[0].main);
-            // console.log("Description: " + response.weather[0].description);
-
             let windspeed = response.wind.speed;
             let humidity = response.main.humidity;
             let temperature = response.main.temp;
@@ -36,32 +26,32 @@ function weather(cityName) {
             let message = '';
 
             if (temperature > 65 && temperature < 85 && weather === "Clear" && windspeed < 10) {
-                // console.log("It's a beautiful sunny day, let's go outside");
+               
                 message = "It's a beautiful sunny day, perfect for a sandwich";
                 category = "sandwiches";
             }
             else if (temperature < 65 && temperature > 0 && weather === "Clear") {
-                // console.log("It's nice, but a little chilly");
+                
                 message = "It's a little chilly, let's checkout a gastropub.";
                 category = "gastropubs";
             }
             else if (temperature < 0) {
-                // console.log("Holy shit it's cold!");
+              
                 message = "It's freezing out! Time for some comfort food.";
                 category = "comfortfood";
             }
             else if (weather === "Snow") {
-                // console.log("Brr! It's snowing");
+                
                 message = "It's snowing... perfect diner weather";
                 category = "Diners";
             }
             else if (weather === "Rain") {
-                // console.log("Rain is the worst");
+                
                 message = "Blimey it's raining! Better get some fish n chips";
                 category = "fishnchips";
             }
             else if (windspeed > 20) {
-                // console.log("Woah it's so windy out");
+               
                 message = "When the winds blows, so do you on your soup!";
                 category = "soup";
             }
@@ -77,10 +67,10 @@ function weather(cityName) {
             }
 
             $("#weather-report").html(message + "<br>We recommend...");
-           
+
             setTimeout(function () { $("#weather-report").append('<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
-                // '<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
-            
+            // '<br><div id="or-try-again">Or <button type="submit" class="btn btn-primary try-again">Try Again</button></div>'); }, 6000);
+
             weatherToday = {
                 windspeed,
                 humidity,
@@ -109,23 +99,15 @@ function yelp(category, cityName) {
         }
     };
     return $.ajax(settings).then(function (response) {
-        // console.log(response);
+
 
         var randomNum = Math.floor(Math.random() * (response.businesses.length - 0)) + 1;
-        // console.log(randomNum);
-
         var restaurantName = response.businesses[randomNum].name;
         var restaurantLat = response.businesses[randomNum].coordinates.latitude;
         var restaurantLong = response.businesses[randomNum].coordinates.longitude;
-
         var restaurantImg = response.businesses[randomNum].image_url;
-        // console.log(restaurantImg);
-
         var restaurantAddress = response.businesses[randomNum].location.display_address[0];
         var restaurantUrl = response.businesses[randomNum].url;
-
-        // console.log(restaurantAddress);
-
         var restName = $("<h5>").text(restaurantName);
         var restAddress = $("<h5>").text(restaurantAddress);
         var websiteLink = $("<a>").attr({
@@ -135,10 +117,6 @@ function yelp(category, cityName) {
 
         var restImg = $("<img>").attr("src", restaurantImg).addClass("yelp-image img-fluid mx-auto d-block rounded");
 
-        //var restLat = $("<p>").text(restaurantLat);
-        //var restLong = $("<p>").text(restaurantLong);
-
-        // $('#restaurant-results').append('<h1>Hello</h1>');
         $("#restaurant-results").append(websiteLink, restAddress, restImg);
         setTimeout(function () { $(".card").css("display", "flex"); }, 2000);
 
@@ -151,26 +129,25 @@ function yelp(category, cityName) {
     });
 }
 
-//EventBrite
 function eventBrite(latitude, longitude) {
     var OAuthToken = "X3AL23CV25F7FKYUFWIW";
 
-    var categoryNum1 = 103; // Music 
-    var categoryNum2 = 105; // Performing & Visual Arts
-    //var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&categories=" + categoryNum1 + "&categories=" + categoryNum2 + "&token=" + OAuthToken;
+    var categoryNum1 = 103;
+    var categoryNum2 = 105;
+
 
     var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=&location.longitude=" + longitude + "&location.latitude=" + latitude + "&expand=venue&start_date.keyword=today&token=" + OAuthToken;
 
-    // console.log(queryURL);
+
 
     return $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        // console.log(response);
+
 
         var randomNum = Math.floor(Math.random() * (response.events.length - 0)) + 1;
-        // console.log(randomNum);
+
 
         var eventName = response.events[randomNum].name.text;
         var eventImage = response.events[randomNum].logo.original.url;
@@ -188,28 +165,24 @@ function eventBrite(latitude, longitude) {
 
     })
 }
-// Capture Button Click
 $("#submit-button").on("click", function (event) {
-    // prevent page from refreshing when form tries to submit itself
+
     event.preventDefault();
     $("#q-page").css("display", "none");
     $("#eat-page").css("display", "flex");
-    // Capture user inputs and store them into variables
+
     var cityName = $("#city-input").val().trim();
 
     return weather(cityName)
         .then(function (weatherInfo) {
-            // console.log(weatherInfo, "this is the weather object");
+
 
             return yelp(weatherInfo.category, cityName)
                 .then(function (coordinates) {
-                    // console.log(coordinates);
-                    return eventBrite(coordinates.latitude, coordinates.longitude)
-                    // .then(function(eventInfo) {
-                    // console.log(eventInfo);
-                    // });
-                })
 
+                    return eventBrite(coordinates.latitude, coordinates.longitude)
+
+                })
         })
         .catch(function (error) {
             event.preventDefault();
@@ -217,10 +190,8 @@ $("#submit-button").on("click", function (event) {
             $('.try-again').on('click', function () {
                 document.location.reload();
             });
-            
+
         });
-
-
 });
 $(document).on('click', ".try-again", function () {
     document.location.reload();
